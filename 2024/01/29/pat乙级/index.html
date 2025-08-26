@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>PAT 乙级 - WhiteNight's Blog</title>
+
+  
+    <meta name="description" content="这份文档包含了解决PAT乙级编程题目的Python代码示例。代码涵盖了从1001到1053的题目，包括数字计算、字符串处理、排序、查找、数据结构等多个方面。每个代码示例都简洁明了，并配有相应的题目描述和代码解释。这份文档可以帮助初学者快速掌握PAT乙级编程题目的解题思路和方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 乙级">
+<meta property="og:url" content="https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/">
+<meta property="og:site_name" content="WhiteNight&#39;s Blog">
+<meta property="og:description" content="这份文档包含了解决PAT乙级编程题目的Python代码示例。代码涵盖了从1001到1053的题目，包括数字计算、字符串处理、排序、查找、数据结构等多个方面。每个代码示例都简洁明了，并配有相应的题目描述和代码解释。这份文档可以帮助初学者快速掌握PAT乙级编程题目的解题思路和方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://whitenight123.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2024-01-29T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T09:14:06.078Z">
+<meta property="article:author" content="WhiteNight">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PAT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://whitenight123.github.io/images/avatar.jpg">
+  
+  
+  
+  <meta name="keywords" content="算法,Python,PAT">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2024-01-29T20:00:00+08:00","dateModified":"2025-03-11T17:14:06+08:00","datePublished":"2024-01-29T20:00:00+08:00","description":"","headline":"PAT 乙级","mainEntityOfPage":{"@type":"WebPage","@id":"https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/"},"publisher":{"@type":"Organization","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/","keywords":"算法, Python, PAT","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">WhiteNight's Blog</div><div class="sub normal cap">充满激情的技术博客</div><div class="sub hover cap" style="opacity:0"> Designed by WhiteNight</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="最新" href="/"><span>最新</span></a><a class="nav-item" title="分类" href="/categories/"><span>分类</span></a><a class="nav-item" title="归档" href="/archives/"><span>归档</span></a><a class="nav-item" title="关于" href="/about/"><span>关于</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2023/04/19/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B/"><span class="title">蓝桥杯备赛</span></a><a class="item title" href="/2024/05/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98/"><span class="title">蓝桥杯真题</span></a><a class="item title" href="/2024/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%BE%85%E5%AF%BC%E8%AF%BE/"><span class="title">蓝桥杯辅导课</span></a><a class="item title" href="/2024/07/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0(c++)/"><span class="title">算法笔记</span></a><a class="item title" href="/2024/09/19/%E6%B4%9B%E8%B0%B7%E9%A2%98%E5%8D%95/"><span class="title">洛谷题单</span></a><a class="item title" href="/2024/01/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/"><span class="title">算法基础课</span></a><a class="item title" href="/2024/09/29/%E4%BF%9D%E7%A0%94%E7%BB%8F%E9%AA%8C%E8%B4%B4/"><span class="title">保研经验贴</span></a><a class="item title" href="/2024/09/09/%E5%8A%9B%E6%89%A3Hot100/"><span class="title">力扣Hot100</span></a><a class="item title" href="/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"><span class="title">安卓第一次课</span></a><a class="item title" href="/2024/01/29/pat%E4%B9%99%E7%BA%A7/"><span class="title">PAT 乙级</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/WhiteNight123" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/github.png"/></a><a class="social" href="https://blog.csdn.net/qq_35274980" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/csdn.png"/></a><a class="social" href="https://www.zhihu.com/people/jiu-xin-57-97" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/zhihu.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-01-29T12:00:00.000Z">2024-01-29</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-03-11T09:14:06.078Z">2025-03-11</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>PAT 乙级</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="1001-害死人不偿命的-3n-1-猜想"><a href="#1001-害死人不偿命的-3n-1-猜想" class="headerlink" title="1001 害死人不偿命的(3n+1)猜想"></a><strong>1001 害死人不偿命的(3n+1)猜想</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">num = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> n != <span class="number">1</span>:</span><br><span class="line">  <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    n = n // <span class="number">2</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    n = (<span class="number">3</span> * n + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">  num += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(num)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1002-写出这个数"><a href="#1002-写出这个数" class="headerlink" title="1002 写出这个数"></a><strong>1002 写出这个数</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> n:</span><br><span class="line">  res += <span class="built_in">int</span>(char)</span><br><span class="line">dicts = [<span class="string">&#x27;ling&#x27;</span>, <span class="string">&#x27;yi&#x27;</span>, <span class="string">&#x27;er&#x27;</span>, <span class="string">&#x27;san&#x27;</span>, <span class="string">&#x27;si&#x27;</span>, <span class="string">&#x27;wu&#x27;</span>, <span class="string">&#x27;liu&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ba&#x27;</span>, <span class="string">&#x27;jiu&#x27;</span>]</span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="built_in">str</span>(res):</span><br><span class="line">  ans.append(dicts[<span class="built_in">int</span>(char)])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, ans)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1003-我要通过！"><a href="#1003-我要通过！" class="headerlink" title="1003 我要通过！"></a><strong>1003 我要通过！</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">arg</span>):</span><br><span class="line">  length = <span class="built_in">len</span>(arg)</span><br><span class="line">  idx = cnt1 = cnt2 = cnt3 = <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> idx &lt; length <span class="keyword">and</span> arg[idx] == <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">    cnt1 += <span class="number">1</span></span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> idx &lt; length <span class="keyword">and</span> arg[idx] == <span class="string">&#x27;P&#x27;</span>:</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">while</span> idx &lt; length <span class="keyword">and</span> arg[idx] == <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">    cnt2 += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> idx &lt; length <span class="keyword">and</span> arg[idx] == <span class="string">&#x27;T&#x27;</span>:</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">while</span> idx &lt; length <span class="keyword">and</span> arg[idx] == <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">    cnt3 += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> idx == length <span class="keyword">and</span> cnt1 * cnt2 == cnt3 <span class="keyword">and</span> cnt2:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a = <span class="built_in">input</span>()</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;YES&#x27;</span> <span class="keyword">if</span> check(a) <span class="keyword">else</span> <span class="string">&#x27;NO&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1004-成绩排名"><a href="#1004-成绩排名" class="headerlink" title="1004 成绩排名"></a><strong>1004 成绩排名</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">students = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  name, number, grade = <span class="built_in">input</span>().split()</span><br><span class="line">  students.append([name, number, grade])</span><br><span class="line">students.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">int</span>(x[<span class="number">2</span>]))</span><br><span class="line"><span class="built_in">print</span>(students[-<span class="number">1</span>][<span class="number">0</span>], students[-<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(students[<span class="number">0</span>][<span class="number">0</span>], students[<span class="number">0</span>][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="1005-继续-3n-1-猜想"><a href="#1005-继续-3n-1-猜想" class="headerlink" title="1005 继续(3n+1)猜想"></a><strong>1005 继续(3n+1)猜想</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res = nums[:]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">num</span>):</span><br><span class="line">  <span class="keyword">while</span> num != <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">      num = num // <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      num = (<span class="number">3</span> * num + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> res:</span><br><span class="line">      res.remove(num)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  check(num)</span><br><span class="line">res.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1006-换个格式输出整数"><a href="#1006-换个格式输出整数" class="headerlink" title="1006 换个格式输出整数"></a><strong>1006 换个格式输出整数</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="string">&#x27;00&#x27;</span> + <span class="built_in">input</span>()</span><br><span class="line">res = <span class="string">&#x27;B&#x27;</span> * <span class="built_in">int</span>(n[-<span class="number">3</span>]) + <span class="string">&#x27;S&#x27;</span> * <span class="built_in">int</span>(n[-<span class="number">2</span>]) + <span class="string">&#x27;&#x27;</span>.join([<span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">int</span>(n[-<span class="number">1</span>]) + <span class="number">1</span>)])</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1007-素数对猜想"><a href="#1007-素数对猜想" class="headerlink" title="1007 素数对猜想"></a><strong>1007 素数对猜想</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">state = [<span class="literal">True</span>] * (n + <span class="number">1</span>)</span><br><span class="line">primes = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n + <span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> state[i]:</span><br><span class="line">    primes.append(i)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i * <span class="number">2</span>, n + <span class="number">1</span>, i):</span><br><span class="line">      state[j] = <span class="literal">False</span></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(primes) - <span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> primes[i + <span class="number">1</span>] - primes[i] == <span class="number">2</span>:</span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1008-数组元素循环右移问题"><a href="#1008-数组元素循环右移问题" class="headerlink" title="1008 数组元素循环右移问题"></a><strong>1008 数组元素循环右移问题</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">nums = nums[n - m: ] + nums[: n - m]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, nums)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1009-说反话"><a href="#1009-说反话" class="headerlink" title="1009 说反话"></a><strong>1009 说反话</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>().split())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, s[::-<span class="number">1</span>])))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1010-一元多项式求导"><a href="#1010-一元多项式求导" class="headerlink" title="1010 一元多项式求导"></a><strong>1010 一元多项式求导</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums), <span class="number">2</span>):</span><br><span class="line">  a = nums[i] * nums[i + <span class="number">1</span>]</span><br><span class="line">  b = nums[i + <span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> a:</span><br><span class="line">    res.extend((a, b))</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> res:</span><br><span class="line">  res.extend((<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1011-A-B-和-C"><a href="#1011-A-B-和-C" class="headerlink" title="1011 A+B 和 C"></a><strong>1011 A+B 和 C</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, t + <span class="number">1</span>):</span><br><span class="line">  a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  <span class="keyword">if</span> a + b &gt; c:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Case #<span class="subst">&#123;i&#125;</span>: true&#x27;</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Case #<span class="subst">&#123;i&#125;</span>: false&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1012-数字分类"><a href="#1012-数字分类" class="headerlink" title="1012 数字分类"></a><strong>1012 数字分类</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res1 = res2 = len2 = res3 = res4 = len4 = res5 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums[<span class="number">1</span>: ]:</span><br><span class="line">  <span class="keyword">if</span> num % <span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">    res1 += num</span><br><span class="line">  <span class="keyword">elif</span> num % <span class="number">5</span> == <span class="number">1</span>:</span><br><span class="line">    res2 += (-<span class="number">1</span>) ** (len2 % <span class="number">2</span>) * num</span><br><span class="line">    len2 += <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> num % <span class="number">5</span> == <span class="number">2</span>:</span><br><span class="line">    res3 += <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> num % <span class="number">5</span> == <span class="number">3</span>:</span><br><span class="line">    res4 += num</span><br><span class="line">    len4 += <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> num % <span class="number">5</span> == <span class="number">4</span>:</span><br><span class="line">    res5 = num <span class="keyword">if</span> num &gt; res5 <span class="keyword">else</span> res5</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> res1:</span><br><span class="line">  res1 = <span class="string">&#x27;N&#x27;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> len2:</span><br><span class="line">  res2 = <span class="string">&#x27;N&#x27;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> res3:</span><br><span class="line">  res3 = <span class="string">&#x27;N&#x27;</span></span><br><span class="line"><span class="keyword">if</span> len4:</span><br><span class="line">  res4 = <span class="built_in">round</span>(res4 / len4, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  res4 = <span class="string">&#x27;N&#x27;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> res5:</span><br><span class="line">  res5 = <span class="string">&#x27;N&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(res1, res2, res3, res4, res5)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1013-数素数"><a href="#1013-数素数" class="headerlink" title="1013 数素数"></a><strong>1013 数素数</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">m, n = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">state = [<span class="literal">True</span>] * <span class="number">600000</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(<span class="number">600000</span>**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> state[i]:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i * i, <span class="number">600000</span>, i):</span><br><span class="line">      state[j] = <span class="literal">False</span></span><br><span class="line">primes = [num <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">600000</span>) <span class="keyword">if</span> state[num]]</span><br><span class="line">tmps = primes[m - <span class="number">1</span>: n]</span><br><span class="line">ress = [tmps[i:i+<span class="number">10</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(tmps), <span class="number">10</span>)]</span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> ress:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1014-福尔摩斯的约会"><a href="#1014-福尔摩斯的约会" class="headerlink" title="1014 福尔摩斯的约会"></a><strong>1014 福尔摩斯的约会</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">s1, s2, s3, s4 = <span class="built_in">input</span>(), <span class="built_in">input</span>(), <span class="built_in">input</span>(), <span class="built_in">input</span>()</span><br><span class="line">len1, len2 = <span class="built_in">min</span>(<span class="built_in">len</span>(s1), <span class="built_in">len</span>(s2)), <span class="built_in">min</span>(<span class="built_in">len</span>(s3), <span class="built_in">len</span>(s4))</span><br><span class="line">res = []</span><br><span class="line">DAY = &#123;<span class="string">&#x27;A&#x27;</span>: <span class="string">&quot;MON&quot;</span>, <span class="string">&#x27;B&#x27;</span>: <span class="string">&quot;TUE&quot;</span>, <span class="string">&#x27;C&#x27;</span>: <span class="string">&quot;WED&quot;</span>, <span class="string">&#x27;D&#x27;</span>: <span class="string">&quot;THU&quot;</span>, <span class="string">&#x27;E&#x27;</span>: <span class="string">&quot;FRI&quot;</span>, <span class="string">&#x27;F&#x27;</span>: <span class="string">&quot;SAT&quot;</span>, <span class="string">&#x27;G&#x27;</span>: <span class="string">&quot;SUN&quot;</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(len1):</span><br><span class="line">  <span class="keyword">if</span> s1[i] == s2[i] <span class="keyword">and</span> <span class="string">&#x27;A&#x27;</span> &lt;= s1[i] &lt;= <span class="string">&#x27;G&#x27;</span>:</span><br><span class="line">    res.append(DAY[s1[i]])</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, len1):</span><br><span class="line">  <span class="keyword">if</span> s1[j] == s2[j]:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;0&#x27;</span> &lt;= s1[j] &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">      res.append(<span class="string">&#x27;0&#x27;</span> + s1[j])</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= s1[j] &lt;= <span class="string">&#x27;N&#x27;</span>:</span><br><span class="line">      res.append(<span class="built_in">str</span>(<span class="built_in">ord</span>(s1[j]) - <span class="number">55</span>))</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(len2):</span><br><span class="line">  <span class="keyword">if</span> s3[i] == s4[i] <span class="keyword">and</span> (<span class="number">97</span> &lt;= <span class="built_in">ord</span>(s3[i]) &lt;= <span class="number">122</span> <span class="keyword">or</span> <span class="number">65</span> &lt;= <span class="built_in">ord</span>(s3[i]) &lt;= <span class="number">90</span>):</span><br><span class="line">    <span class="keyword">if</span> i &lt; <span class="number">10</span>:</span><br><span class="line">      res.append(<span class="string">&#x27;0&#x27;</span> + <span class="built_in">str</span>(i))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      res.append(<span class="built_in">str</span>(i))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;res[<span class="number">0</span>]&#125;</span> <span class="subst">&#123;res[<span class="number">1</span>]&#125;</span>:<span class="subst">&#123;res[<span class="number">2</span>]&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1015-德才论（部分通过）"><a href="#1015-德才论（部分通过）" class="headerlink" title="1015 德才论（部分通过）"></a><strong>1015 德才论</strong>（部分通过）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> stdin</span><br><span class="line"><span class="built_in">input</span> = <span class="keyword">lambda</span>: stdin.readline().strip()</span><br><span class="line">n, l, h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">res1, res2, res3, res4 = [], [], [], []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  <span class="keyword">if</span> b &gt;= h <span class="keyword">and</span> c &gt;= h:</span><br><span class="line">    res1.append([a, b, c, b + c])</span><br><span class="line">  <span class="keyword">elif</span> b &gt;= h <span class="keyword">and</span> c &gt;= l:</span><br><span class="line">    res2.append([a, b, c, b + c])</span><br><span class="line">  <span class="keyword">elif</span> b &gt;= l <span class="keyword">and</span> c &gt;= l <span class="keyword">and</span> b &gt;= c:</span><br><span class="line">    res3.append([a, b, c, b + c])</span><br><span class="line">  <span class="keyword">elif</span> b &gt;= l <span class="keyword">and</span> c &gt;= l:</span><br><span class="line">    res4.append([a, b, c, b + c])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(res1) + <span class="built_in">len</span>(res2) + <span class="built_in">len</span>(res3) + <span class="built_in">len</span>(res4))</span><br><span class="line">res1.sort(key=<span class="keyword">lambda</span> x: (x[<span class="number">3</span>], x[<span class="number">1</span>], -x[<span class="number">0</span>]), reverse=<span class="literal">True</span>)</span><br><span class="line">res2.sort(key=<span class="keyword">lambda</span> x: (x[<span class="number">3</span>], x[<span class="number">1</span>], -x[<span class="number">0</span>]), reverse=<span class="literal">True</span>)</span><br><span class="line">res3.sort(key=<span class="keyword">lambda</span> x: (x[<span class="number">3</span>], x[<span class="number">1</span>], -x[<span class="number">0</span>]), reverse=<span class="literal">True</span>)</span><br><span class="line">res4.sort(key=<span class="keyword">lambda</span> x: (x[<span class="number">3</span>], x[<span class="number">1</span>], -x[<span class="number">0</span>]), reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> res1:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[: -<span class="number">1</span>])))</span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> res2:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[: -<span class="number">1</span>])))</span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> res3:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[: -<span class="number">1</span>])))</span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> res4:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[: -<span class="number">1</span>])))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1016-部分A-B"><a href="#1016-部分A-B" class="headerlink" title="1016 部分A+B"></a><strong>1016 部分A+B</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A, Da, B, Db = <span class="built_in">input</span>().split()</span><br><span class="line">Pa = Da * A.count(Da) <span class="keyword">if</span> A.count(Da) <span class="keyword">else</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line">Pb = Db * B.count(Db) <span class="keyword">if</span> A.count(Da) <span class="keyword">else</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(Pa) + <span class="built_in">int</span>(Pb))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1017-A除以B"><a href="#1017-A除以B" class="headerlink" title="1017 A除以B"></a><strong>1017 A除以B</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"><span class="built_in">print</span>(a // b, a % b)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1018-锤子剪刀布"><a href="#1018-锤子剪刀布" class="headerlink" title="1018 锤子剪刀布"></a><strong>1018 锤子剪刀布</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = b =  c = <span class="number">0</span></span><br><span class="line">jia, yi = [], []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  x, y = <span class="built_in">input</span>().split()</span><br><span class="line">  jia.append(x)</span><br><span class="line">  yi.append(y)</span><br><span class="line">  <span class="keyword">if</span> x == y:</span><br><span class="line">    c += <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> x == <span class="string">&#x27;C&#x27;</span> <span class="keyword">and</span> y == <span class="string">&#x27;J&#x27;</span> <span class="keyword">or</span> x == <span class="string">&#x27;J&#x27;</span> <span class="keyword">and</span> y == <span class="string">&#x27;B&#x27;</span> <span class="keyword">or</span> x == <span class="string">&#x27;B&#x27;</span> <span class="keyword">and</span> y == <span class="string">&#x27;C&#x27;</span>:</span><br><span class="line">    a += <span class="number">1</span></span><br><span class="line">    jia.append(x)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    b += <span class="number">1</span></span><br><span class="line">    yi.append(y)</span><br><span class="line"><span class="built_in">print</span>(a, c, b)</span><br><span class="line"><span class="built_in">print</span>(n - a - c, c, n - b - c)</span><br><span class="line">b1, c1, j1 = jia.count(<span class="string">&#x27;B&#x27;</span>), jia.count(<span class="string">&#x27;C&#x27;</span>), jia.count(<span class="string">&#x27;J&#x27;</span>)</span><br><span class="line">b2, c2, j2 = yi.count(<span class="string">&#x27;B&#x27;</span>), yi.count(<span class="string">&#x27;C&#x27;</span>), yi.count(<span class="string">&#x27;J&#x27;</span>)</span><br><span class="line">t1, t2 = <span class="built_in">max</span>(b1, c1, j1), <span class="built_in">max</span>(b2, c2, j2)</span><br><span class="line"><span class="keyword">if</span> b1 == t1:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;B&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> c1 == t1:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;C&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;J&#x27;</span>, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> b2 == t2:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> c2 == t2:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;J&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1019-数字黑洞"><a href="#1019-数字黑洞" class="headerlink" title="1019 数字黑洞"></a><strong>1019 数字黑洞</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">n</span>):</span><br><span class="line">  n = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">list</span>(<span class="built_in">str</span>(n).zfill(<span class="number">4</span>)))</span><br><span class="line">  b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">sorted</span>(n)))</span><br><span class="line">  a = b[::-<span class="number">1</span>]</span><br><span class="line">  c = <span class="string">&#x27;&#x27;</span>.join(a)</span><br><span class="line">  d = <span class="string">&#x27;&#x27;</span>.join(b)</span><br><span class="line">  e = <span class="built_in">int</span>(c) - <span class="built_in">int</span>(d)</span><br><span class="line">  e = <span class="built_in">str</span>(e).zfill(<span class="number">4</span>)</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;c&#125;</span> - <span class="subst">&#123;d&#125;</span> = <span class="subst">&#123;e&#125;</span>&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> e != <span class="string">&#x27;0000&#x27;</span> <span class="keyword">and</span> e != <span class="string">&#x27;6174&#x27;</span>:</span><br><span class="line">    fun(e)</span><br><span class="line">fun(n)</span><br></pre></td></tr></table></figure>
+
+<h2 id="020-月饼"><a href="#020-月饼" class="headerlink" title="020 月饼"></a><strong>020 月饼</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">N, D = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">stocks = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">prices = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">profits = [price / stock <span class="keyword">for</span> stock, price <span class="keyword">in</span> <span class="built_in">zip</span>(stocks, prices)]</span><br><span class="line">yuebings = <span class="built_in">sorted</span>(<span class="built_in">zip</span>(stocks, prices, profits), key=<span class="keyword">lambda</span> x: x[<span class="number">2</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> stock, price, profit <span class="keyword">in</span> yuebings:</span><br><span class="line">  a = <span class="built_in">min</span>(stock, D)</span><br><span class="line">  res += a * profit</span><br><span class="line">  D -= a</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> D:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;res:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1021-个位数统计"><a href="#1021-个位数统计" class="headerlink" title="1021 个位数统计"></a><strong>1021 个位数统计</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line">nums = <span class="string">&#x27;0123456789&#x27;</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  <span class="keyword">if</span> n.count(num):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;num&#125;</span>:<span class="subst">&#123;n.count(num)&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1022-D进制的A-B"><a href="#1022-D进制的A-B" class="headerlink" title="1022 D进制的A+B"></a><strong>1022 D进制的A+B</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a, b, d = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">c = a + b</span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">while</span> c:</span><br><span class="line">  res.append(c % d)</span><br><span class="line">  c //= d</span><br><span class="line"><span class="keyword">if</span> res:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[::-<span class="number">1</span>])))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1023-组个最小数"><a href="#1023-组个最小数" class="headerlink" title="1023 组个最小数"></a><strong>1023 组个最小数</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">  <span class="keyword">if</span> nums[i]:</span><br><span class="line">    nums[i] -= <span class="number">1</span></span><br><span class="line">    res = <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">nums = [<span class="built_in">str</span>(num) * nums[num] <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> nums[num]]</span><br><span class="line"><span class="built_in">print</span>(res + <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, nums)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1024-科学计数法"><a href="#1024-科学计数法" class="headerlink" title="1024 科学计数法"></a><strong>1024 科学计数法</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">input</span>()</span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">if</span> a[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">  res.append(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">e = a.find(<span class="string">&#x27;E&#x27;</span>)</span><br><span class="line">exp = <span class="built_in">int</span>(a[e+<span class="number">2</span>:])</span><br><span class="line"><span class="keyword">if</span> a[e + <span class="number">1</span>] == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">  res.append(a[<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">if</span> exp &gt;= e - <span class="number">3</span>:</span><br><span class="line">    res.append(a[<span class="number">3</span>: e])</span><br><span class="line">    res.append(<span class="string">&#x27;0&#x27;</span> * (exp - e + <span class="number">3</span>))</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    res.append(a[<span class="number">3</span>: <span class="number">3</span> + exp])</span><br><span class="line">    res.append(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">    res.append(a[<span class="number">3</span> + exp: e])</span><br><span class="line"><span class="keyword">elif</span> a[e + <span class="number">1</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">  res.append(<span class="string">&#x27;0.&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> exp &gt; <span class="number">1</span>:</span><br><span class="line">    res.append(<span class="string">&#x27;0&#x27;</span> * (exp - <span class="number">1</span>))</span><br><span class="line">  res.append(a[<span class="number">1</span>])</span><br><span class="line">  res.append(a[<span class="number">3</span>: e])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>.join(res))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1025-反转链表"><a href="#1025-反转链表" class="headerlink" title="1025 反转链表"></a><strong>1025 反转链表</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">start, n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">datas, nexts, lst = [<span class="number">0</span>] * <span class="number">100001</span>, [<span class="number">0</span>] * <span class="number">100001</span>, []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  datas[a], nexts[a] = b, c</span><br><span class="line"><span class="keyword">while</span> start != -<span class="number">1</span>:</span><br><span class="line">  lst.append(start)</span><br><span class="line">  start = nexts[start]</span><br><span class="line">cnt = <span class="built_in">len</span>(lst)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, cnt - cnt % k, k):</span><br><span class="line">  lst[i: i + k] = lst[i: i + k][::-<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(cnt - <span class="number">1</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;lst[i]:05d&#125;</span> <span class="subst">&#123;datas[lst[i]]&#125;</span> <span class="subst">&#123;lst[i + <span class="number">1</span>]:05d&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;lst[-<span class="number">1</span>]:05d&#125;</span> <span class="subst">&#123;datas[lst[-<span class="number">1</span>]]&#125;</span> -1&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1026-程序运行时间"><a href="#1026-程序运行时间" class="headerlink" title="1026 程序运行时间"></a><strong>1026 程序运行时间</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">c1, c2 = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">t = (c2 - c1 + <span class="number">50</span>) // <span class="number">100</span></span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">while</span> t:</span><br><span class="line">  <span class="keyword">if</span> t % <span class="number">60</span> &lt; <span class="number">10</span>:</span><br><span class="line">    res.append(<span class="string">&#x27;0&#x27;</span> + <span class="built_in">str</span>(t % <span class="number">60</span>))</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    res.append(<span class="built_in">str</span>(t % <span class="number">60</span>))</span><br><span class="line">  t //= <span class="number">60</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(res) &lt; <span class="number">3</span>:</span><br><span class="line">  res.append(<span class="string">&#x27;00&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;:&#x27;</span>.join( res[::-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1027-打印沙漏"><a href="#1027-打印沙漏" class="headerlink" title="1027 打印沙漏"></a><strong>1027 打印沙漏</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">n, symbol = <span class="built_in">input</span>().split()</span><br><span class="line">shalous = []</span><br><span class="line">shalou = -<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">  shalou += <span class="number">2</span> * (<span class="number">2</span> * i + <span class="number">1</span>)</span><br><span class="line">  shalous.append(shalou)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">int</span>(n) &lt; shalous[i]:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">a = <span class="number">2</span> * (i - <span class="number">1</span>) + <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(a, <span class="number">1</span>, -<span class="number">2</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span> * ((a - j) // <span class="number">2</span>) + symbol * j)</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, a + <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span> * ((a - j) // <span class="number">2</span>) + symbol * j)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(n) - shalous[i - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="1028-人口普查（部分通过）"><a href="#1028-人口普查（部分通过）" class="headerlink" title="1028 人口普查（部分通过）"></a><strong>1028 人口普查（部分通过）</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> stdin</span><br><span class="line"><span class="built_in">input</span> = <span class="keyword">lambda</span>: stdin.readline().strip()</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  name, birth = <span class="built_in">input</span>().split()</span><br><span class="line">  y, m, d = birth.split(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> <span class="string">&#x27;18140906&#x27;</span> &lt;= y + m + d &lt;= <span class="string">&#x27;20140906&#x27;</span>:</span><br><span class="line">    nums.append([name, <span class="built_in">int</span>(y), <span class="built_in">int</span>(m), <span class="built_in">int</span>(d)])</span><br><span class="line">nums.sort(key=<span class="keyword">lambda</span> x: (x[<span class="number">1</span>], x[<span class="number">2</span>], x[<span class="number">3</span>]))</span><br><span class="line"><span class="keyword">if</span> nums:</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">len</span>(nums), nums[<span class="number">0</span>][<span class="number">0</span>], nums[-<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1029-旧键盘"><a href="#1029-旧键盘" class="headerlink" title="1029 旧键盘"></a><strong>1029 旧键盘</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="built_in">input</span>(), <span class="built_in">input</span>()</span><br><span class="line">dicts = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> b:</span><br><span class="line">  dicts[char] = <span class="number">1</span></span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> a:</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> dicts.get(char, <span class="number">0</span>):</span><br><span class="line">    <span class="keyword">if</span> char.isalpha():</span><br><span class="line">      char = char.upper()</span><br><span class="line">    res.append(char)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>.join(&#123;&#125;.fromkeys(res).keys()))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1030-完美数列"><a href="#1030-完美数列" class="headerlink" title="1030 完美数列"></a><strong>1030 完美数列</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n, p = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">nums.sort()</span><br><span class="line">res, j = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  <span class="keyword">while</span> j &lt; n <span class="keyword">and</span> nums[j] &lt;= nums[i] * p:</span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line">  res = <span class="built_in">max</span>(res, j - i)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1031-查验身份证"><a href="#1031-查验身份证" class="headerlink" title="1031 查验身份证"></a><strong>1031 查验身份证</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">dicts = [<span class="number">1</span>, <span class="number">0</span>, <span class="string">&#x27;X&#x27;</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">weights = [<span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">id_card</span>):</span><br><span class="line">  check_num = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">17</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="number">48</span> &lt;= <span class="built_in">ord</span>(id_card[i]) &lt;= <span class="number">57</span>:</span><br><span class="line">      check_num += <span class="built_in">int</span>(id_card[i]) * weights[i] </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  check_num %= <span class="number">11</span></span><br><span class="line">  <span class="keyword">return</span> id_card[-<span class="number">1</span>] == <span class="built_in">str</span>(dicts[check_num])</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  id_card = <span class="built_in">input</span>()</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> check(id_card):</span><br><span class="line">    <span class="built_in">print</span>(id_card)</span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> res:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;All passed&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1032-挖掘机技术哪家强"><a href="#1032-挖掘机技术哪家强" class="headerlink" title="1032 挖掘机技术哪家强"></a><strong>1032 挖掘机技术哪家强</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = [-<span class="number">1</span>] + [<span class="number">0</span>] * <span class="number">100000</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  nums[a] += b</span><br><span class="line"><span class="built_in">print</span>(nums.index(<span class="built_in">max</span>(nums)), <span class="built_in">max</span>(nums))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1033-旧键盘打字"><a href="#1033-旧键盘打字" class="headerlink" title="1033 旧键盘打字"></a><strong>1033 旧键盘打字</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bad, string = <span class="built_in">list</span>(<span class="built_in">input</span>()), <span class="built_in">input</span>()</span><br><span class="line">shift = <span class="literal">False</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> bad:</span><br><span class="line">  <span class="keyword">if</span> i == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">    shift = <span class="literal">True</span></span><br><span class="line">  <span class="keyword">if</span> <span class="number">65</span> &lt;= <span class="built_in">ord</span>(i) &lt;= <span class="number">90</span>:</span><br><span class="line">    bad.append(i.lower())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">  <span class="keyword">if</span> <span class="number">65</span> &lt;= <span class="built_in">ord</span>(i) &lt;= <span class="number">90</span> <span class="keyword">and</span> shift:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">  <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> bad:</span><br><span class="line">    <span class="built_in">print</span>(i, end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1034-有理数四则运算"><a href="#1034-有理数四则运算" class="headerlink" title="1034 有理数四则运算"></a><strong>1034 有理数四则运算</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">a, b = <span class="built_in">input</span>().split()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simplify</span>(<span class="params">a</span>):</span><br><span class="line">  x, y = <span class="built_in">map</span>(<span class="built_in">int</span>, a.split(<span class="string">&#x27;/&#x27;</span>))</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">str</span>(x // math.gcd(x, y)) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y // math.gcd(x, y))</span><br><span class="line">a, b = simplify(a), simplify(b)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate</span>(<span class="params">a, b</span>):</span><br><span class="line">  x1, y1 = <span class="built_in">map</span>(<span class="built_in">int</span>, a.split(<span class="string">&#x27;/&#x27;</span>))</span><br><span class="line">  x2, y2 = <span class="built_in">map</span>(<span class="built_in">int</span>, b.split(<span class="string">&#x27;/&#x27;</span>))</span><br><span class="line">  t = <span class="built_in">str</span>(x1 * y2 + x2 * y1) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y1 * y2)</span><br><span class="line">  res.append(simplify(t))</span><br><span class="line">  t = <span class="built_in">str</span>(x1 * y2 - x2 * y1) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y1 * y2)</span><br><span class="line">  res.append(simplify(t))</span><br><span class="line">  t = <span class="built_in">str</span>(x1 * x2) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y1 * y2)</span><br><span class="line">  res.append(simplify(t))</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> x2:</span><br><span class="line">    res.append(<span class="string">&#x27;1/0&#x27;</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> x2 &lt; <span class="number">0</span>:</span><br><span class="line">      x2, y2 = -x2, -y2</span><br><span class="line">    t = <span class="built_in">str</span>(x1 * y2) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y1 * x2)</span><br><span class="line">    res.append(simplify(t))</span><br><span class="line">res = []</span><br><span class="line">calculate(a, b)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simplify2</span>(<span class="params">a</span>):</span><br><span class="line">  x, y = <span class="built_in">map</span>(<span class="built_in">int</span>, a.split(<span class="string">&#x27;/&#x27;</span>))</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> y:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Inf&#x27;</span></span><br><span class="line">  ans = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  t = <span class="built_in">abs</span>(x) // y</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> x % y:</span><br><span class="line">    ans = <span class="built_in">str</span>(t)</span><br><span class="line">  <span class="keyword">elif</span> t:</span><br><span class="line">    ans = <span class="built_in">str</span>(t) + <span class="string">&#x27; &#x27;</span> + <span class="built_in">str</span>(<span class="built_in">abs</span>(x - t * y * x // <span class="built_in">abs</span>(x))) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    ans = <span class="built_in">str</span>(<span class="built_in">abs</span>(x)) + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">str</span>(y)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;(-&#x27;</span> + ans + <span class="string">&#x27;)&#x27;</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> ans</span><br><span class="line">a, b, res = simplify2(a), simplify2(b), [simplify2(i) <span class="keyword">for</span> i <span class="keyword">in</span> res]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span> + <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;res[<span class="number">0</span>]&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span> - <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;res[<span class="number">1</span>]&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span> * <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;res[<span class="number">2</span>]&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span> / <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;res[<span class="number">3</span>]&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1035-插入与归并"><a href="#1035-插入与归并" class="headerlink" title="1035 插入与归并"></a><strong>1035 插入与归并</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">start = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">mid = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> start[i] != mid[i]:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">sorted</span>(mid[:i + <span class="number">1</span>]) == mid[:i + <span class="number">1</span>]:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Insertion Sort&#x27;</span>)</span><br><span class="line">  a = start[i + <span class="number">1</span>]</span><br><span class="line">  <span class="keyword">while</span> a &gt; start[i]:</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    a = start[i + <span class="number">1</span>]</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a &lt; mid[j]:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, (mid[: j] + [a] + mid[j:i + <span class="number">1</span>] + mid[i+<span class="number">2</span>:]))))</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Merge Sort&#x27;</span>)</span><br><span class="line">  i = <span class="number">1</span></span><br><span class="line">  flag = <span class="literal">True</span></span><br><span class="line">  <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> flag:</span><br><span class="line">    i *= <span class="number">2</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, n, i):</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sorted</span>(mid[j-i: j]) != mid[j-i: j]:</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">if</span> i &gt; j:</span><br><span class="line">    mid.sort()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, n, i):</span><br><span class="line">      mid[j-i: j] = <span class="built_in">sorted</span>(mid[j-i: j])</span><br><span class="line">    mid[j:] = <span class="built_in">sorted</span>(mid[j:])</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, mid)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1036-跟奥巴马一起编程"><a href="#1036-跟奥巴马一起编程" class="headerlink" title="1036 跟奥巴马一起编程"></a><strong>1036 跟奥巴马一起编程</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n, c = <span class="built_in">input</span>().split()</span><br><span class="line">n = <span class="built_in">int</span>(n)</span><br><span class="line">row = <span class="built_in">int</span>(n / <span class="number">2</span> + <span class="number">0.5</span>) - <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(c * n)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(row):</span><br><span class="line">  <span class="built_in">print</span>(c + <span class="string">&#x27; &#x27;</span> * (n - <span class="number">2</span>) + c)</span><br><span class="line"><span class="built_in">print</span>(c * n)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1037-在霍格沃茨找零钱"><a href="#1037-在霍格沃茨找零钱" class="headerlink" title="1037 在霍格沃茨找零钱"></a><strong>1037 在霍格沃茨找零钱</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">p, a = <span class="built_in">input</span>().split()</span><br><span class="line">g1, s1, k1 = <span class="built_in">map</span>(<span class="built_in">int</span>, p.split(<span class="string">&#x27;.&#x27;</span>))</span><br><span class="line">g2, s2, k2 = <span class="built_in">map</span>(<span class="built_in">int</span>, a.split(<span class="string">&#x27;.&#x27;</span>))</span><br><span class="line">t1 = (g1 * <span class="number">17</span> + s1) * <span class="number">29</span> + k1</span><br><span class="line">t2 = (g2 * <span class="number">17</span> + s2) * <span class="number">29</span> + k2</span><br><span class="line">t3 = <span class="built_in">abs</span>(t2 - t1)</span><br><span class="line">k3 = t3 % <span class="number">29</span></span><br><span class="line">s3 = t3 // <span class="number">29</span> % <span class="number">17</span></span><br><span class="line">g3 = (t3 // <span class="number">29</span> - s3) // <span class="number">17</span></span><br><span class="line"><span class="keyword">if</span> t2 &gt;= t1:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;g3&#125;</span>.<span class="subst">&#123;s3&#125;</span>.<span class="subst">&#123;k3&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;-<span class="subst">&#123;g3&#125;</span>.<span class="subst">&#123;s3&#125;</span>.<span class="subst">&#123;k3&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1038-统计同成绩学生"><a href="#1038-统计同成绩学生" class="headerlink" title="1038 统计同成绩学生"></a><strong>1038 统计同成绩学生</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">checks = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">scores = [<span class="number">0</span>] * <span class="number">101</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  scores[num] += <span class="number">1</span></span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> check <span class="keyword">in</span> checks[<span class="number">1</span>:]:</span><br><span class="line">  res.append(scores[check])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1039-到底买不买"><a href="#1039-到底买不买" class="headerlink" title="1039 到底买不买"></a><strong>1039 到底买不买</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s, t = <span class="built_in">input</span>(), <span class="built_in">input</span>()</span><br><span class="line">a, dict1 = <span class="number">0</span>, &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">  dict1[char] = dict1.get(char, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> t:</span><br><span class="line">  <span class="keyword">if</span> dict1.get(char, <span class="number">0</span>):</span><br><span class="line">    a += <span class="number">1</span></span><br><span class="line">    dict1[char] -= <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> a == <span class="built_in">len</span>(t):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;Yes <span class="subst">&#123;<span class="built_in">len</span>(s) - <span class="built_in">len</span>(t)&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;No <span class="subst">&#123;<span class="built_in">len</span>(t) - a&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1040-有几个PAT"><a href="#1040-有几个PAT" class="headerlink" title="1040 有几个PAT"></a><strong>1040 有几个PAT</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line">p, a, pa, t = [], [], [], []</span><br><span class="line"><span class="keyword">for</span> idx, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(s):</span><br><span class="line">  <span class="keyword">if</span> char == <span class="string">&#x27;P&#x27;</span>:</span><br><span class="line">    p.append(idx)</span><br><span class="line">  <span class="keyword">elif</span> char == <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">    a.append(idx)</span><br><span class="line">  <span class="keyword">elif</span> char == <span class="string">&#x27;T&#x27;</span>:</span><br><span class="line">    t.append(idx)</span><br><span class="line">tmp = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">  x = bisect.bisect(p, i)</span><br><span class="line">  tmp += x</span><br><span class="line">  pa.append(tmp)</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> t:</span><br><span class="line">  x = bisect.bisect(a, i)</span><br><span class="line">  <span class="keyword">if</span> x:</span><br><span class="line">    res += pa[x-<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(res % <span class="number">1000000007</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1041-考试座位号"><a href="#1041-考试座位号" class="headerlink" title="1041 考试座位号"></a><strong>1041 考试座位号</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = [<span class="number">0</span>] * <span class="number">10001</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  nums[b] = (a, c)</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">inqurie = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> inqurie:</span><br><span class="line">  <span class="built_in">print</span>(nums[i][<span class="number">0</span>], nums[i][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="1042-字符统计"><a href="#1042-字符统计" class="headerlink" title="1042 字符统计"></a><strong>1042 字符统计</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line">t = []</span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">  <span class="keyword">if</span> <span class="number">65</span> &lt;= <span class="built_in">ord</span>(char) &lt;= <span class="number">90</span>:</span><br><span class="line">    char = char.lower()</span><br><span class="line">  <span class="keyword">if</span> <span class="number">97</span> &lt;= <span class="built_in">ord</span>(char) &lt;= <span class="number">122</span>:</span><br><span class="line">    t.append(char)</span><br><span class="line">t.sort()</span><br><span class="line">t = Counter(t)</span><br><span class="line"><span class="built_in">print</span>(t.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>], t.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="1043-输出PATest"><a href="#1043-输出PATest" class="headerlink" title="1043 输出PATest"></a><strong>1043 输出PATest</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line">t = [char <span class="keyword">for</span> char <span class="keyword">in</span> s <span class="keyword">if</span> char <span class="keyword">in</span> <span class="string">&#x27;PATest&#x27;</span>]</span><br><span class="line">counter = Counter(t)</span><br><span class="line">res = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(counter.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">1</span>]):</span><br><span class="line">  <span class="keyword">for</span> char <span class="keyword">in</span> <span class="string">&#x27;PATest&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> counter[char]:</span><br><span class="line">      counter[char] -= <span class="number">1</span></span><br><span class="line">      res += char</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1044-火星数字"><a href="#1044-火星数字" class="headerlink" title="1044 火星数字"></a><strong>1044 火星数字</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">units = [<span class="string">&#x27;tret&#x27;</span>, <span class="string">&#x27;jan&#x27;</span>, <span class="string">&#x27;feb&#x27;</span>, <span class="string">&#x27;mar&#x27;</span>, <span class="string">&#x27;apr&#x27;</span>, <span class="string">&#x27;may&#x27;</span>, <span class="string">&#x27;jun&#x27;</span>, <span class="string">&#x27;jly&#x27;</span>, <span class="string">&#x27;aug&#x27;</span>, <span class="string">&#x27;sep&#x27;</span>, <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;nov&#x27;</span>, <span class="string">&#x27;dec&#x27;</span>]</span><br><span class="line">tens = [<span class="string">&#x27;tam&#x27;</span>, <span class="string">&#x27;hel&#x27;</span>, <span class="string">&#x27;maa&#x27;</span>, <span class="string">&#x27;huh&#x27;</span>, <span class="string">&#x27;tou&#x27;</span>, <span class="string">&#x27;kes&#x27;</span>, <span class="string">&#x27;hei&#x27;</span>, <span class="string">&#x27;elo&#x27;</span>, <span class="string">&#x27;syy&#x27;</span>, <span class="string">&#x27;lok&#x27;</span>, <span class="string">&#x27;mer&#x27;</span>, <span class="string">&#x27;jou&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  a = <span class="built_in">input</span>()</span><br><span class="line">  <span class="keyword">try</span>:</span><br><span class="line">    a = <span class="built_in">int</span>(a)</span><br><span class="line">  <span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(a) &gt; <span class="number">4</span>:</span><br><span class="line">      x, y = a.split()</span><br><span class="line">      ten, unit = tens.index(x) + <span class="number">1</span>, units.index(y)</span><br><span class="line">      <span class="built_in">print</span>(ten * <span class="number">13</span> + unit)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">if</span> a <span class="keyword">in</span> units:</span><br><span class="line">        <span class="built_in">print</span>(units.index(a))</span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>((tens.index(a) + <span class="number">1</span>) * <span class="number">13</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    unit, ten = a % <span class="number">13</span>, a // <span class="number">13</span></span><br><span class="line">    <span class="keyword">if</span> ten &gt; <span class="number">0</span> <span class="keyword">and</span> unit &gt; <span class="number">0</span>:</span><br><span class="line">      <span class="built_in">print</span>(tens[ten - <span class="number">1</span>], units[unit])</span><br><span class="line">    <span class="keyword">elif</span> ten &gt; <span class="number">0</span>:</span><br><span class="line">      <span class="built_in">print</span>(tens[ten - <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="built_in">print</span>(units[unit])</span><br></pre></td></tr></table></figure>
+
+<h2 id="1045-快速排序"><a href="#1045-快速排序" class="headerlink" title="1045 快速排序"></a><strong>1045 快速排序</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">lefts, rights, res = [], [], []</span><br><span class="line">left, right = <span class="number">0</span>, <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  <span class="keyword">if</span> left &lt; num:</span><br><span class="line">    left = num</span><br><span class="line">  lefts.append(left)</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums[::-<span class="number">1</span>]:</span><br><span class="line">  <span class="keyword">if</span> right &gt; num:</span><br><span class="line">    right = num</span><br><span class="line">  rights.append(right)</span><br><span class="line"><span class="keyword">for</span> left, num, right <span class="keyword">in</span> <span class="built_in">zip</span>(lefts, nums, rights[::-<span class="number">1</span>]):</span><br><span class="line">  <span class="keyword">if</span> left &lt;= num &lt;= right:</span><br><span class="line">    res.append(num)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(res))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1046-划拳"><a href="#1046-划拳" class="headerlink" title="1046 划拳"></a><strong>1046 划拳</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = b = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  x1, x2, y1, y2 = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  <span class="keyword">if</span> x2 == y2:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">  <span class="keyword">if</span> x1 + y1 == x2:</span><br><span class="line">    b += <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> x1 + y1 == y2:</span><br><span class="line">    a += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1047-编程团体赛"><a href="#1047-编程团体赛" class="headerlink" title="1047 编程团体赛"></a><strong>1047 编程团体赛</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = [<span class="number">0</span>] * <span class="number">1001</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  num, score = <span class="built_in">input</span>().split()</span><br><span class="line">  a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, num.split(<span class="string">&#x27;-&#x27;</span>))</span><br><span class="line">  nums[a] += <span class="built_in">int</span>(score)</span><br><span class="line">res = <span class="built_in">max</span>(nums)</span><br><span class="line"><span class="built_in">print</span>(nums.index(res), res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1048-数字加密"><a href="#1048-数字加密" class="headerlink" title="1048 数字加密"></a><strong>1048 数字加密</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="built_in">input</span>().split()</span><br><span class="line">l = <span class="built_in">max</span>(<span class="built_in">len</span>(a), <span class="built_in">len</span>(b))</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, a[::-<span class="number">1</span>])) + [<span class="number">0</span>] * (l - <span class="built_in">len</span>(a))</span><br><span class="line">b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, b[::-<span class="number">1</span>])) + [<span class="number">0</span>] * (l - <span class="built_in">len</span>(b))</span><br><span class="line">dicts = [<span class="string">&#x27;J&#x27;</span>, <span class="string">&#x27;Q&#x27;</span>, <span class="string">&#x27;K&#x27;</span>]</span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l):</span><br><span class="line">  <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    t = (a[i] + b[i]) % <span class="number">13</span></span><br><span class="line">    res.append(dicts[t - <span class="number">10</span>] <span class="keyword">if</span> t &gt;= <span class="number">10</span> <span class="keyword">else</span> t)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    res.append((b[i] - a[i] + <span class="number">10</span>) % <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res[::-<span class="number">1</span>])))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1049-数列的片段和（部分通过）"><a href="#1049-数列的片段和（部分通过）" class="headerlink" title="1049 数列的片段和（部分通过）"></a><strong>1049 数列的片段和（部分通过）</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res, a = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  res += num * a * n</span><br><span class="line">  n -= <span class="number">1</span></span><br><span class="line">  a += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;res:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1050-螺旋矩阵"><a href="#1050-螺旋矩阵" class="headerlink" title="1050 螺旋矩阵"></a><strong>1050 螺旋矩阵</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">nums.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">m = n = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">int</span>(math.sqrt(N)) + <span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> N % i == <span class="number">0</span>:</span><br><span class="line">    n, m = i, N // i</span><br><span class="line">res = [[<span class="number">0</span>] * n <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m)]</span><br><span class="line">u, d, l, r = <span class="number">0</span>, m, <span class="number">0</span>, n</span><br><span class="line">idx = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">  res[u][l:r] = nums[idx: idx+r-l]</span><br><span class="line">  u += <span class="number">1</span></span><br><span class="line">  idx += r-l</span><br><span class="line">  <span class="keyword">if</span> u == d <span class="keyword">or</span> l == r:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(u, d):</span><br><span class="line">    res[i][r-<span class="number">1</span>] = nums[idx]</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">  r -= <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> u == d <span class="keyword">or</span> l == r:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  res[d-<span class="number">1</span>][l:r] = nums[idx: idx+r-l][::-<span class="number">1</span>]</span><br><span class="line">  idx += r-l</span><br><span class="line">  d -= <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> u == d <span class="keyword">or</span> l == r:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(d-<span class="number">1</span>, u-<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    res[i][l] = nums[idx]</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">  l += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> u == d <span class="keyword">or</span> l == r:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> res:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, row)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1051-复数乘法"><a href="#1051-复数乘法" class="headerlink" title="1051 复数乘法"></a><strong>1051 复数乘法</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">r1, p1, r2, p2 = <span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split())</span><br><span class="line">a1 = r1 * math.cos(p1)</span><br><span class="line">b1 = r1 * math.sin(p1)</span><br><span class="line">a2 = r2 * math.cos(p2)</span><br><span class="line">b2 = r2 * math.sin(p2)</span><br><span class="line">a3 = a1*a2-b1*b2 </span><br><span class="line">b3 = a1*b2+a2*b1</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">abs</span>(a3) &lt; <span class="number">0.005</span>:</span><br><span class="line">  a3 = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">abs</span>(b3) &lt; <span class="number">0.005</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a3:<span class="number">.2</span>f&#125;</span>+0.00i&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> b3 &gt; <span class="number">0</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a3:<span class="number">.2</span>f&#125;</span>+<span class="subst">&#123;b3:<span class="number">.2</span>f&#125;</span>i&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a3:<span class="number">.2</span>f&#125;</span><span class="subst">&#123;b3:<span class="number">.2</span>f&#125;</span>i&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1052-卖个萌"><a href="#1052-卖个萌" class="headerlink" title="1052 卖个萌"></a><strong>1052 卖个萌</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看不懂题</span><br></pre></td></tr></table></figure>
+
+<h2 id="1053-住房空置率"><a href="#1053-住房空置率" class="headerlink" title="1053 住房空置率"></a><strong>1053 住房空置率</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n, e, d = <span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split())</span><br><span class="line">maybe_vacant = vacant = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(n)):</span><br><span class="line">  nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">  t = <span class="built_in">sum</span>(<span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> nums[<span class="number">1</span>:] <span class="keyword">if</span> i &lt; e)</span><br><span class="line">  <span class="keyword">if</span> t / nums[<span class="number">0</span>] &gt; <span class="number">0.5</span>:</span><br><span class="line">    <span class="keyword">if</span> nums[<span class="number">0</span>] &gt; d:</span><br><span class="line">      vacant += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      maybe_vacant += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;maybe_vacant / n * <span class="number">100</span>:<span class="number">.1</span>f&#125;</span>% <span class="subst">&#123;vacant / n * <span class="number">100</span>:<span class="number">.1</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item email" href="mailto:?subject=PAT 乙级 - WhiteNight's Blog&amp;body=https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://whitenight123.github.io/2024/01/29/pat%E4%B9%99%E7%BA%A7/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%BE%85%E5%AF%BC%E8%AF%BE/">蓝桥杯辅导课</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/01/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/">算法基础课</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\2023\05\17\labuladong算法小抄\" title="labuladong算法小抄"><span class="title">labuladong算法小抄</span><span class="excerpt">Labuladong的算法笔记是一套专注于算法学习和刷题的资源，旨在通过模板化思维提升解题能力。内容涵盖数据结构、暴力搜索、动态规划等算法，适合技术面试准备。特点是将复杂算法简化，支持多语言学习，结构清晰，分为常见算法类型、数据结构算...</span></a><a class="item" href="\2024\08\30\PAT甲级\" title="PAT 甲级"><span class="title">PAT 甲级</span><span class="excerpt">这份文档是一个 PAT 甲级编程题目的集合，包含了 117 个不同的问题。这些问题涵盖了各种类型，包括：基础算法：如排序、查找、贪心算法等；数据结构：如链表、树、图、并查集等；数学：如数论、概率、组合数学等；模拟：如大模拟、事件模拟等...</span></a><a class="item" href="\2023\04\19\蓝桥杯备赛\" title="蓝桥杯备赛"><span class="title">蓝桥杯备赛</span><span class="excerpt">蓝桥杯备赛，包括暴力、动态规划、数论、图论等。</span></a><a class="item" href="\2024\01\29\算法基础课\" title="算法基础课"><span class="title">算法基础课</span><span class="excerpt">这份文档详细介绍了 AcWing 算法基础课中的各种算法和数据结构，包括排序算法（快速排序、归并排序）、二分查找、前缀和、差分、双指针、二进制、离散化、区间合并、数据结构（单链表、双链表、栈、队列、单调栈、单调队列、KMP、Trie、...</span></a><a class="item" href="\2024\09\09\力扣Hot100\" title="力扣Hot100"><span class="title">力扣Hot100</span><span class="excerpt">力扣Hot100题解，包括哈希、双指针、滑动窗口、字串、矩阵、链表、二叉树、图论、回溯、二分查找、栈、堆、贪心算法、动态规划等。</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="WhiteNight123/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1001-%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84-3n-1-%E7%8C%9C%E6%83%B3"><span class="toc-text">1001 害死人不偿命的(3n+1)猜想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1002-%E5%86%99%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0"><span class="toc-text">1002 写出这个数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1003-%E6%88%91%E8%A6%81%E9%80%9A%E8%BF%87%EF%BC%81"><span class="toc-text">1003 我要通过！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E6%88%90%E7%BB%A9%E6%8E%92%E5%90%8D"><span class="toc-text">1004 成绩排名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005-%E7%BB%A7%E7%BB%AD-3n-1-%E7%8C%9C%E6%83%B3"><span class="toc-text">1005 继续(3n+1)猜想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1006-%E6%8D%A2%E4%B8%AA%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%95%B4%E6%95%B0"><span class="toc-text">1006 换个格式输出整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-%E7%B4%A0%E6%95%B0%E5%AF%B9%E7%8C%9C%E6%83%B3"><span class="toc-text">1007 素数对猜想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1008-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E5%BE%AA%E7%8E%AF%E5%8F%B3%E7%A7%BB%E9%97%AE%E9%A2%98"><span class="toc-text">1008 数组元素循环右移问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009-%E8%AF%B4%E5%8F%8D%E8%AF%9D"><span class="toc-text">1009 说反话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010-%E4%B8%80%E5%85%83%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E5%AF%BC"><span class="toc-text">1010 一元多项式求导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1011-A-B-%E5%92%8C-C"><span class="toc-text">1011 A+B 和 C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012-%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB"><span class="toc-text">1012 数字分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1013-%E6%95%B0%E7%B4%A0%E6%95%B0"><span class="toc-text">1013 数素数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1014-%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%9A%84%E7%BA%A6%E4%BC%9A"><span class="toc-text">1014 福尔摩斯的约会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1015-%E5%BE%B7%E6%89%8D%E8%AE%BA%EF%BC%88%E9%83%A8%E5%88%86%E9%80%9A%E8%BF%87%EF%BC%89"><span class="toc-text">1015 德才论（部分通过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1016-%E9%83%A8%E5%88%86A-B"><span class="toc-text">1016 部分A+B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1017-A%E9%99%A4%E4%BB%A5B"><span class="toc-text">1017 A除以B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1018-%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83"><span class="toc-text">1018 锤子剪刀布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1019-%E6%95%B0%E5%AD%97%E9%BB%91%E6%B4%9E"><span class="toc-text">1019 数字黑洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020-%E6%9C%88%E9%A5%BC"><span class="toc-text">020 月饼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1021-%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="toc-text">1021 个位数统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1022-D%E8%BF%9B%E5%88%B6%E7%9A%84A-B"><span class="toc-text">1022 D进制的A+B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1023-%E7%BB%84%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%95%B0"><span class="toc-text">1023 组个最小数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1024-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-text">1024 科学计数法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1025-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-text">1025 反转链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1026-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="toc-text">1026 程序运行时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1027-%E6%89%93%E5%8D%B0%E6%B2%99%E6%BC%8F"><span class="toc-text">1027 打印沙漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1028-%E4%BA%BA%E5%8F%A3%E6%99%AE%E6%9F%A5%EF%BC%88%E9%83%A8%E5%88%86%E9%80%9A%E8%BF%87%EF%BC%89"><span class="toc-text">1028 人口普查（部分通过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1029-%E6%97%A7%E9%94%AE%E7%9B%98"><span class="toc-text">1029 旧键盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1030-%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97"><span class="toc-text">1030 完美数列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1031-%E6%9F%A5%E9%AA%8C%E8%BA%AB%E4%BB%BD%E8%AF%81"><span class="toc-text">1031 查验身份证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1032-%E6%8C%96%E6%8E%98%E6%9C%BA%E6%8A%80%E6%9C%AF%E5%93%AA%E5%AE%B6%E5%BC%BA"><span class="toc-text">1032 挖掘机技术哪家强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1033-%E6%97%A7%E9%94%AE%E7%9B%98%E6%89%93%E5%AD%97"><span class="toc-text">1033 旧键盘打字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1034-%E6%9C%89%E7%90%86%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-text">1034 有理数四则运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1035-%E6%8F%92%E5%85%A5%E4%B8%8E%E5%BD%92%E5%B9%B6"><span class="toc-text">1035 插入与归并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1036-%E8%B7%9F%E5%A5%A5%E5%B7%B4%E9%A9%AC%E4%B8%80%E8%B5%B7%E7%BC%96%E7%A8%8B"><span class="toc-text">1036 跟奥巴马一起编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1037-%E5%9C%A8%E9%9C%8D%E6%A0%BC%E6%B2%83%E8%8C%A8%E6%89%BE%E9%9B%B6%E9%92%B1"><span class="toc-text">1037 在霍格沃茨找零钱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1038-%E7%BB%9F%E8%AE%A1%E5%90%8C%E6%88%90%E7%BB%A9%E5%AD%A6%E7%94%9F"><span class="toc-text">1038 统计同成绩学生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1039-%E5%88%B0%E5%BA%95%E4%B9%B0%E4%B8%8D%E4%B9%B0"><span class="toc-text">1039 到底买不买</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1040-%E6%9C%89%E5%87%A0%E4%B8%AAPAT"><span class="toc-text">1040 有几个PAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1041-%E8%80%83%E8%AF%95%E5%BA%A7%E4%BD%8D%E5%8F%B7"><span class="toc-text">1041 考试座位号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1042-%E5%AD%97%E7%AC%A6%E7%BB%9F%E8%AE%A1"><span class="toc-text">1042 字符统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1043-%E8%BE%93%E5%87%BAPATest"><span class="toc-text">1043 输出PATest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1044-%E7%81%AB%E6%98%9F%E6%95%B0%E5%AD%97"><span class="toc-text">1044 火星数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1045-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-text">1045 快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1046-%E5%88%92%E6%8B%B3"><span class="toc-text">1046 划拳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1047-%E7%BC%96%E7%A8%8B%E5%9B%A2%E4%BD%93%E8%B5%9B"><span class="toc-text">1047 编程团体赛</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1048-%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86"><span class="toc-text">1048 数字加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1049-%E6%95%B0%E5%88%97%E7%9A%84%E7%89%87%E6%AE%B5%E5%92%8C%EF%BC%88%E9%83%A8%E5%88%86%E9%80%9A%E8%BF%87%EF%BC%89"><span class="toc-text">1049 数列的片段和（部分通过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1050-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5"><span class="toc-text">1050 螺旋矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1051-%E5%A4%8D%E6%95%B0%E4%B9%98%E6%B3%95"><span class="toc-text">1051 复数乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1052-%E5%8D%96%E4%B8%AA%E8%90%8C"><span class="toc-text">1052 卖个萌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1053-%E4%BD%8F%E6%88%BF%E7%A9%BA%E7%BD%AE%E7%8E%87"><span class="toc-text">1053 住房空置率</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+<script async src="/js/fireworksontype.js"></script><script async src="/js/effectsonclick.js"></script>
+</div></body></html>

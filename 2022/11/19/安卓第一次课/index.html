@@ -1,0 +1,1531 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>安卓第一次课 - WhiteNight's Blog</title>
+
+  
+    <meta name="description" content="本文主要介绍了安卓第一次课的内容，包括Android Studio的安装和使用，并完成了第一个简单的Android应用。了解了Android项目结构，认识了视图的基本单位——控件，包括View和ViewGroup，并学习了ConstraintLayout等常用布局。最后，还介绍了如何打包APK以及一些实用的插件和设置技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓第一次课">
+<meta property="og:url" content="https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/">
+<meta property="og:site_name" content="WhiteNight&#39;s Blog">
+<meta property="og:description" content="本文主要介绍了安卓第一次课的内容，包括Android Studio的安装和使用，并完成了第一个简单的Android应用。了解了Android项目结构，认识了视图的基本单位——控件，包括View和ViewGroup，并学习了ConstraintLayout等常用布局。最后，还介绍了如何打包APK以及一些实用的插件和设置技巧。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://whitenight123.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2022-11-19T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T09:14:06.079Z">
+<meta property="article:author" content="WhiteNight">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://whitenight123.github.io/images/avatar.jpg">
+  
+  
+  
+  <meta name="keywords" content="Android">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2022-11-19T20:00:00+08:00","dateModified":"2025-03-11T17:14:06+08:00","datePublished":"2022-11-19T20:00:00+08:00","description":"","headline":"安卓第一次课","mainEntityOfPage":{"@type":"WebPage","@id":"https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"},"publisher":{"@type":"Organization","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/","keywords":"Android","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">WhiteNight's Blog</div><div class="sub normal cap">充满激情的技术博客</div><div class="sub hover cap" style="opacity:0"> Designed by WhiteNight</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="最新" href="/"><span>最新</span></a><a class="nav-item" title="分类" href="/categories/"><span>分类</span></a><a class="nav-item" title="归档" href="/archives/"><span>归档</span></a><a class="nav-item" title="关于" href="/about/"><span>关于</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2023/04/19/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B/"><span class="title">蓝桥杯备赛</span></a><a class="item title" href="/2024/05/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98/"><span class="title">蓝桥杯真题</span></a><a class="item title" href="/2024/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%BE%85%E5%AF%BC%E8%AF%BE/"><span class="title">蓝桥杯辅导课</span></a><a class="item title" href="/2024/07/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0(c++)/"><span class="title">算法笔记</span></a><a class="item title" href="/2024/09/19/%E6%B4%9B%E8%B0%B7%E9%A2%98%E5%8D%95/"><span class="title">洛谷题单</span></a><a class="item title" href="/2024/01/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/"><span class="title">算法基础课</span></a><a class="item title" href="/2024/09/29/%E4%BF%9D%E7%A0%94%E7%BB%8F%E9%AA%8C%E8%B4%B4/"><span class="title">保研经验贴</span></a><a class="item title" href="/2024/09/09/%E5%8A%9B%E6%89%A3Hot100/"><span class="title">力扣Hot100</span></a><a class="item title" href="/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"><span class="title">安卓第一次课</span></a><a class="item title" href="/2024/01/29/pat%E4%B9%99%E7%BA%A7/"><span class="title">PAT 乙级</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/WhiteNight123" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/github.png"/></a><a class="social" href="https://blog.csdn.net/qq_35274980" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/csdn.png"/></a><a class="social" href="https://www.zhihu.com/people/jiu-xin-57-97" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/zhihu.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Android/">Android</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-11-19T12:00:00.000Z">2022-11-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-03-11T09:14:06.079Z">2025-03-11</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>安卓第一次课</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><blockquote>
+<p>恭喜大家都还能活到这节课，从现在开始我们进入Android的学习，前面Java没学会的也不要紧，在以后的学习中就能慢慢理解了，接下来开始起飞。</p>
+<img src="https://i0.hdslb.com/bfs/article/de00a6225e003c1d941d8a085ac2f62a0115274d.jpg@432w_432h_progressive.webp" style="zoom:50%;" />
+</blockquote>
+<h2 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h2><p><strong>工欲善其事，必先利其器</strong>。在学习之前，这里有<strong>份史诗级新手装备</strong>待你领取，它叫<strong>AS</strong>。</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/%E4%B8%8A%E5%8F%B7.jpg" alt="上号" style="zoom:50%;" />
+
+<ol>
+<li>和IDEA一样，进入ToolBox下载</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119101736382.png" alt="image-20221119101736382" style="zoom:50%;" />
+
+<ol start="2">
+<li>打开AS，选择不导入</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119101803136.png" alt="image-20221119101803136" style="zoom:50%;" />
+
+<ol start="3">
+<li><p>不向谷歌发送，下一步</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119101912276.png" alt="image-20221119101912276" style="zoom: 50%;" />
+</li>
+<li><p>先不设置代理，下一步</p>
+<p>有梯子的同学可以<a href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">设置代理</a></p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119101956364.png" alt="image-20221119101956364" style="zoom:33%;" />
+</li>
+<li><p>选择标准安装，下一步</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119102127196.png" alt="image-20221119102127196" style="zoom: 50%;" />
+</li>
+<li><p>选择主题，下一步</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119102231909.png" alt="image-20221119102231909" style="zoom:50%;" />
+</li>
+<li><p>下一步，接受条款，下一步</p>
+<p><img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221119102422543.png" alt="image-20221119102422543" style="zoom:33%;" /> <img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119102456570.png" alt="image-20221119102456570" style="zoom:33%;" /></p>
+</li>
+<li><p>等待下载，然后点击Finish</p>
+<p>等待时间较长，觉得慢用流量开热点，这校园网太垃圾！</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119102551804.png" alt="image-20221119102551804" style="zoom:50%;" />
+
+<p>安装完成，接下来开始你的第一个APP🎉</p>
+<p><strong>注：从AS是纯英文版，汉化插件需要自己去找，不推荐使用汉化，以后的很多文档都是英文的，各位需打好英语基础。</strong></p>
+</li>
+</ol>
+<h2 id="第一个APP"><a href="#第一个APP" class="headerlink" title="第一个APP"></a>第一个APP</h2><ol>
+<li><p>新建一个项目</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119102946779.png" alt="image-20221119102946779" style="zoom:50%;" />
+</li>
+<li><p>选择<strong>Empty Activity</strong>，点击下一步</p>
+<p>其他Activity有很多模板代码，我们也用不到</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119103033032.png" alt="image-20221119103033032" style="zoom:50%;" />
+</li>
+<li><p>选择Java语言，安卓兼容最低版本为安卓7</p>
+<p>目前市场上大部分安卓版本都在安卓7以上，只有小部分还是安卓5，我们不用去管它</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119103344941.png" alt="image-20221119103344941" style="zoom:50%;" />
+</li>
+<li><p>等待下载完成</p>
+<p>等待时间较长，觉得慢用流量开热点，这校园网太垃圾！</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119103421483.png" alt="image-20221119103421483" style="zoom:50%;" />
+</li>
+<li><p>运行第一个App，点击绿色的三角</p>
+<p><code>Pixel_3a_API_33_x86_64</code>是我们在AS的模拟器</p>
+<p><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119103614211.png" alt="image-20221119103614211"></p>
+</li>
+<li><p>等一会就运行成功了🎉</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119103735259.png" alt="image-20221119103735259" style="zoom:50%;" />
+</li>
+<li><p>刚才那个是在模拟器上运行，实际上，我们一般选择用真机调试，因为模拟器上有一些奇怪的bug，而且轻薄本用模拟器会卡🥀</p>
+<p>手机打开usb调试，以小米手机为例：连续点击MIUI版本7下，开启开发者选项，打开USB调试</p>
+<p><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119094553553.png" style="zoom:33%;" /> <img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119094635117.png" alt="image-20221119094635117" style="zoom:33%;" /></p>
+</li>
+<li><p>用数据线连接电脑</p>
+<p>   第一次连接会提示你配对，点确定就好了</p>
+<p>   然后AS上会显示你的设备</p>
+   <img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119104338869.png" alt="image-20221119104338869" style="zoom:50%;" />
+</li>
+<li><p>点击绿三角运行</p>
+<p>   手机上同意通过USB安装应用</p>
+<p>   你成功在手机上运行了自己的APP🎉🎉🎉</p>
+   <img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/%5D@8%60%5DY9N%5DWA%7B8$RYJ$YNL7E.jpg" alt="img" style="zoom:50%;" /></li>
+</ol>
+<h2 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h2><blockquote>
+<p>在此推荐真正的郭神写的书：《第一行代码》第二版（由于该书时间发行较久，可能不好买到一手。群里有 pdf）</p>
+<img src="https://pic.arkread.com/cover/ebook/f/35604638.1653694564.jpg!cover_default.jpg" alt="第一行代码：Android（第2版）" style="zoom:50%;" />
+
+<p><strong>别买到蓝色的第三版了</strong></p>
+<img src="https://img2.doubanio.com/view/subject/s/public/s33596312.jpg" alt="第一行代码(第3版)" style="zoom: 67%;" />
+
+<p>第三版全部用的 <strong>kotlin</strong>，里面虽然也有一些 kotlin 的语法讲解，但你们目前阶段对于 java 掌握不牢固，不适合去学习 kotlin</p>
+<h2 id="书中的坑"><a href="#书中的坑" class="headerlink" title="书中的坑"></a>书中的坑</h2><blockquote>
+<p>由于 Android 一年一个版本，所以书中很多教程到现在都已经很旧了，在此提一些坑</p>
+<h3 id="support-导包问题"><a href="#support-导包问题" class="headerlink" title="support 导包问题"></a>support 导包问题</h3><img src="https://gitee.com/guo985892345/typora/raw/master/img/typoraimage-20211112220814024.png" alt="image-20211112220814024" style="zoom: 50%;" />
+
+<p>书中在讲一些导包时都会让你们像上图一样导入 <code>suport</code> 包，<strong>目前该包已被官方停止维护</strong>，且已经迁移至 <code>androidx</code> 的包。</p>
+<p>这是目前的androidx包，报黄的原因是可以升级了，鼠标移过去就可以升级</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119105639037.png" style="zoom: 50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119105830002.png" alt="image-20221119105830002" style="zoom:33%;" />
+
+<p>在这里我建议在<strong>代码中直接输入</strong>要使用的控件的全名，再使用 <strong>Alt + Enter</strong>，AS 会自动帮你导包，对于 build.gradle 文件不建议你们修改</p>
+<p><strong>例如：</strong>导入 <code>RecyclerView</code> 可以直接在代码中写，在选择后 AS 会自动帮你导包</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221119105931335.png" alt="image-20221119105931335" style="zoom: 50%;" />
+
+<p>但仍存在部分控件或者依赖 AS 也不知道的情况，这时就需要你们自己谷歌找最新的依赖包了</p>
+</blockquote>
+</blockquote>
+<h2 id="XML简单介绍"><a href="#XML简单介绍" class="headerlink" title="XML简单介绍"></a>XML简单介绍</h2><ol>
+<li><p>什么是XML</p>
+<p>XML (eXtensible Markup Language)指可扩展标记语言，是一种用于标记电子文件使其具有结构性的标记语言。</p>
+</li>
+<li><p>XML的用途<br>xml被用于信息的记录和传递，因此xml经常被用于充当配置文件。</p>
+<p>在Android中，res文件下和manifest使用的是xml语言</p>
+</li>
+<li><p>XML 仅仅是纯文本<br>XML 没什么特别的，它仅仅是纯文本而已，所以res下的文件需要受到java下的代码调用。</p>
+</li>
+<li><p>XML的格式</p>
+<p>XML 文档第一行以 XML 声明开始，用来表述文档的一些信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Redrock<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://redrock.team<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">logo</span>&gt;</span>redrock.png<span class="tag">&lt;/<span class="name">logo</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">desc</span>&gt;</span>红岩网校工作站<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><name>、<url>、<logo>、<desc> 分别为标签，标签内包含了要传递的信息。</p>
+<ul>
+<li><p>标签必须成对出现，有开始标签就需要有结束标签，例如：开始标签：**<name>** 和 结束标签：**</name>**</p>
+</li>
+<li><p>标签是有层级的，必须正确的嵌套；</p>
+</li>
+<li><p>标签区分大小写；</p>
+</li>
+<li><p>xml属性值必须加引号，例</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="Android-项目结构"><a href="#Android-项目结构" class="headerlink" title="Android 项目结构"></a>Android 项目结构</h2><blockquote>
+<p>Android 与之前 Java 的一个项目相比复杂了许多，下面我们先简单认识一下。</p>
+<p>结构视图有<code>Project</code>和<code>Android</code>两种，Project就是以文件夹的形式展示，Android是编译后更方便的一种展示。</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221125133525559.png" alt="image-20221125133525559" style="zoom:50%;" />
+
+<p>谷歌爸爸为了使我们的应用更好开发，把代码与视图进行了分层，主要的结构视图如下：（在 Android 视图下)：</p>
+<ol>
+<li>java下面写我们的逻辑代码，就和以前我们在src里写的一样</li>
+<li>res是写布局代码，包括一些图片，布局，主题，颜色等等。</li>
+<li>gradle是项目构建，目前我们不用管</li>
+</ol>
+<img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221125134544001.png" alt="image-20221125134544001" style="zoom:50%;" />
+
+<blockquote>
+<h3 id="manifests"><a href="#manifests" class="headerlink" title="manifests"></a>manifests</h3></blockquote>
+<blockquote>
+<p>用来放 <code>AndroidManifests.xml</code> 简称“注册文件”</p>
+</blockquote>
+<blockquote>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221125135603943.png" alt="image-20221125135603943" style="zoom:50%;" />
+</blockquote>
+<p><strong>注：</strong>但由于Android12的问题，目前需要在启动的 <code>activity</code> 的标签新加一句android:exported&#x3D;”true”，它的作用是：是否支持其它应用调用当前组件</p>
+<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><p>你的所有用于控制视图的代码都在这里</p>
+<p>第一个包就是你的源代码 java 文件，后面两个包是有关测试的，不用去了解，之后的个人开发也不会用到他们，网校开发也没有用到</p>
+<h3 id="res"><a href="#res" class="headerlink" title="res"></a>res</h3><p>用于放视图和资源文件</p>
+<h3 id="drawable"><a href="#drawable" class="headerlink" title="drawable"></a>drawable</h3><p>用于放图片资源以及 xml 类型的图片</p>
+<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>用于放应用中每个界面的地方</p>
+<h3 id="mipmap"><a href="#mipmap" class="headerlink" title="mipmap"></a>mipmap</h3><p>这里只用来放应用的桌面图标的（<strong>注：</strong>这里一般不是用来放应用内部图片或者图标的，该文件夹一般不用）</p>
+<h3 id="values"><a href="#values" class="headerlink" title="values"></a>values</h3><p>用于放一些引用的文字或者颜色等杂东西</p>
+</blockquote>
+<h2 id="认识HelloWorld"><a href="#认识HelloWorld" class="headerlink" title="认识HelloWorld"></a>认识HelloWorld</h2><blockquote>
+<p>相信各位都想自己开始动手改写 HelloWorld，但一打开 java 代码却傻了眼，这都是些什么鬼？</p>
+<img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221125175114949.png" alt="image-20221125175114949" style="zoom:50%;" />
+
+<h3 id="java-代码讲解"><a href="#java-代码讲解" class="headerlink" title="java 代码讲解"></a>java 代码讲解</h3><blockquote>
+<p>你一看MainActivity继承于 AppCompatActivity，然后点进去一看，666 行的英文，什么也看不懂。</p>
+<p>其实不用管这么多，就跟你们开始学习 java 一样，只要记住之前的 <code>main()</code> 是整个程序的入口，在 Android 中这个入口“变成了” <code>onCreated()</code> （其实入口并不是它）以后代码就 “全” 写在 <code>onCreated()</code> 中就可以了（别真的把代码全写在一个函数中了！）</p>
+<h3 id="关键语句-setContentView"><a href="#关键语句-setContentView" class="headerlink" title="关键语句 setContentView()"></a>关键语句 setContentView()</h3><p>细心的你肯定能发现除了 <code>super.onCreate()</code> 外，他还自己多写了一个 <code>setContentView(R.layout.activity_main)</code>。</p>
+<blockquote>
+<h4 id="setContentView-字面意思就是：设置内容视图"><a href="#setContentView-字面意思就是：设置内容视图" class="headerlink" title="setContentView 字面意思就是：设置内容视图"></a>setContentView 字面意思就是：设置内容视图</h4><p>前面我们讲过 Android 将 <code>视图</code> 与 <code>代码</code> 进行了分离，而这就话就是将视图与代码进行判定，其中 <strong>R.layout</strong> 是一种固定写法，用于引用 <code>layout</code> 文件夹中的文件（<strong>tips:</strong> 同理，<code>R.drawable</code> 表示引用 <code>drawable</code> 文件夹中的图片）</p>
+</blockquote>
+</blockquote>
+<h3 id="layout-中的-XML"><a href="#layout-中的-XML" class="headerlink" title="layout 中的 XML"></a>layout 中的 XML</h3><blockquote>
+<p>点击 <code>activity_main</code> 后肯定更懵逼了，这又是写的什么？（555，我还是退学吧！）</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126093148550.png" alt="image-20221126093148550" style="zoom:50%;" />
+
+</blockquote>
+<p>目前可以死记住需要这样写即可</p>
+<p>但我还是给大家简单梳理下：</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126093307545.png" style="zoom:50%;" />
+
+<blockquote>
+</blockquote>
+<p>其中 2 ~ 8 行是一体的（严格来说还包括第19行），描绘了一个在 <code>androidx.constraintlayout.widget</code> 下一个叫 <code>ConstraintLayout</code> 的控件的行为（何为控件？后面会讲）</p>
+<p>同理，这个是一个名字叫 <code>TextView</code> 的控件</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126093456054.png" alt="image-20221126093456054" style="zoom:50%;" />
+
+<p>其中第 13 行有一个 “Hello World!”，我们把他改成 “Hello RedRock！”，再打包运行一下，你就会发现应用的字变成了  “Hello Redrock！”</p>
+<p>简单的认识了HelloWorld后，我们接下来进行更细致的讲解</p>
+</blockquote>
+<h2 id="视图的基本单位——控件"><a href="#视图的基本单位——控件" class="headerlink" title="视图的基本单位——控件"></a>视图的基本单位——控件</h2><blockquote>
+<p>控件中分为单一的，用于与用户交互的控件 (View) 和 负责布局的控件 (ViewGroup)</p>
+</blockquote>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><blockquote>
+<h2 id="常用的-View"><a href="#常用的-View" class="headerlink" title="常用的 View"></a>常用的 View</h2><h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><p>一个用于显示文本的控件</p>
+<table>
+<thead>
+<tr>
+<th>自身属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em><strong>android:text</strong></em></td>
+<td>设置显示的文字</td>
+</tr>
+<tr>
+<td><em><strong>android:textSize</strong></em></td>
+<td>设置字体大小</td>
+</tr>
+<tr>
+<td><em><strong>android:textStyle</strong></em></td>
+<td>设置字体样式（只有加粗和斜体）</td>
+</tr>
+<tr>
+<td><em><strong>android:fontFamily</strong></em></td>
+<td>设置文字的字体</td>
+</tr>
+<tr>
+<td><em><strong>app:drawableStartCompat</strong></em></td>
+<td>设置文字左边的图片（类似的可以把 Start 换成 Top、Bottom、End）</td>
+</tr>
+</tbody></table>
+<p>如果要设置一个图片在 <code>TextView</code> 旁边，尽量使用 <em><strong>app:drawableStartCompat</strong></em> 属性，而不是写一个 <code>ImageView</code> 在旁边</p>
+<h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><p>一个与用户进行交互的按钮（<strong>注意：</strong>并不是只有 <code>Button</code> 可以点击，所有的 View 都可以设置点击监听）</p>
+<table>
+<thead>
+<tr>
+<th>自身属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>所有 TestView 的属性</strong></td>
+<td>因为 <code>Button</code> 是直接继承于 <code>TestView</code> 的，所以拥有所有 <code>TestView</code> 的属性</td>
+</tr>
+</tbody></table>
+<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><p>一个与用户进行交互的输入控件</p>
+<table>
+<thead>
+<tr>
+<th>自身属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>所有 TestView 的属性</strong></td>
+<td>因为 EditText  也是直接继承于 TestView 的，所有拥有所有 TestView 的属性</td>
+</tr>
+<tr>
+<td><em><strong>android:hint</strong></em></td>
+<td>设置提示文字</td>
+</tr>
+<tr>
+<td><em><strong>android:textColorHint</strong></em></td>
+<td>设置提示文字颜色</td>
+</tr>
+<tr>
+<td><em><strong>android:inputType</strong></em></td>
+<td>设置输入的类型</td>
+</tr>
+<tr>
+<td><em><strong>android:digits</strong></em></td>
+<td>设置值接受指定的文本内容</td>
+</tr>
+<tr>
+<td><em><strong>android:lines</strong></em></td>
+<td>设置显示行数</td>
+</tr>
+<tr>
+<td><em><strong>android:maxLines</strong></em></td>
+<td>设置最大显示行数</td>
+</tr>
+</tbody></table>
+<p>（简单提一句：其实后面几个属性也不是 <code>EditText</code> 独有的）</p>
+<h2 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h2><p>一个显示图片的控件</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em><strong>android:src</strong></em></td>
+<td>设置（前景）图片</td>
+</tr>
+<tr>
+<td><em><strong>android:scaleType</strong></em></td>
+<td>设置当图片与控件大小不一致时缩放模式</td>
+</tr>
+</tbody></table>
+<p>如何添加图片：</p>
+<ol>
+<li><p>普通图片</p>
+<p>直接将图片放到res&#x2F;drawable目录下即可</p>
+</li>
+<li><p>矢量图</p>
+<p>推荐一个矢量图网站：<a target="_blank" rel="noopener" href="https://www.iconfont.cn/collections/index?spm=a313x.7781069.1998910419.5&type=1&sortType=favorite">阿里巴巴矢量图标库</a>，里面有很多好看的图标，而且是免费的。</p>
+<ol>
+<li><p>先下载SVG图片，保存到你自己能找到的地方</p>
+<img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221126102300504.png" alt="image-20221126102300504" style="zoom:50%;" />
+</li>
+<li><p>在res文件夹下新建一个Vector Asset</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126102514490.png" alt="image-20221126102514490" style="zoom:50%;" />
+</li>
+<li><p>选择加载本地资源，找到你的图片</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126102819483.png" alt="image-20221126102819483" style="zoom:50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126102903559.png" alt="image-20221126102903559" style="zoom:50%;" />
+</li>
+<li><p>调整一些参数</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126103016756.png" alt="image-20221126103016756" style="zoom:50%;" />
+</li>
+<li><p>完成</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126103122892.png" alt="image-20221126103122892" style="zoom:50%;" /></li>
+</ol>
+</li>
+</ol>
+<h3 id="补充书没有的内容"><a href="#补充书没有的内容" class="headerlink" title="补充书没有的内容"></a>补充书没有的内容</h3><h3 id="scaleType"><a href="#scaleType" class="headerlink" title="scaleType"></a>scaleType</h3><p>推荐博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ren18678213431/article/details/62236932">scaleType 的使用</a></p>
+<p><code>一般使用 centeInside 模式</code>，当 size 大于 <code>ImageView</code> 的图片进行等比例缩小，小于 <code>ImageView</code> 的图片不变，直接居中显示。（当不写该属性时，默认是 <code>fitCenter</code> 意思是当 size 大于 <code>ImageView</code> 的图片进行等比例缩小，小于 <code>ImageView</code> 的图片进行等比例放大，直接居中显示）</p>
+<h3 id="ShapeableImageView"><a href="#ShapeableImageView" class="headerlink" title="ShapeableImageView"></a>ShapeableImageView</h3><p>如果想实现圆头像或者其他样式的头像，可以试试这个控件</p>
+<p>推荐博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_34587520/article/details/108992294?utm_medium=distribute.wap_relevant.none-task-blog-baidujs_title-0">ShapeableImageView 的使用</a></p>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><h2 id="android-layout-margin-与-padding"><a href="#android-layout-margin-与-padding" class="headerlink" title="android:layout_margin 与 padding"></a>android:layout_margin 与 padding</h2><p>初学者往往会搞不懂这两个的含义</p>
+<p>其中 <strong>layout_margin</strong> 是以父布局为参考系，设置外部边距</p>
+<p>**padding **是以自身为参考系设置设置内部子 View 或者文本等边距</p>
+<h2 id="android-background"><a href="#android-background" class="headerlink" title="android:background"></a>android:background</h2><p>设置背景（与 <code>ImageView</code> 的 <em><strong>android:src</strong></em> 不同，src 是设置前景，可以选择缩放模式，而 background 是设置背景，是直接强行拉伸或者压缩图片）</p>
+<h2 id="Material组件库"><a href="#Material组件库" class="headerlink" title="Material组件库"></a>Material组件库</h2><p>Material Design 是由Google开发设计，扩展于Google即时的“卡片”设计，材质设计基于网格的布局、响应动画与过渡、填充、深度效果（如光线和阴影）。</p>
+<p><a target="_blank" rel="noopener" href="https://m3.material.io/">Material官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/material-components/material-components-android">Github地址</a></p>
+<p>强烈建议你们下载下来，里面有很多好看的控件，直接拿来用。</p>
+</blockquote>
+<h3 id="ViewGroup"><a href="#ViewGroup" class="headerlink" title="ViewGroup"></a>ViewGroup</h3><blockquote>
+<p><code>ViewGroup</code> 被翻译成容器，他的作用就是用来装 <code>TextView</code>、<code>Button</code> 这些控件的</p>
+<h2 id="基础-ViewGroup"><a href="#基础-ViewGroup" class="headerlink" title="基础 ViewGroup"></a>基础 ViewGroup</h2><p>以下简单讲解你们现阶段会用到的 <code>ViewGroup</code>，由于《第一行代码》中有关于这些的演示和讲解，所以这次课我更多的是进行实践操作</p>
+<h2 id="LinearLayout"><a href="#LinearLayout" class="headerlink" title="LinearLayout"></a>LinearLayout</h2><p><strong>页数：</strong>《第一行代码》P94页</p>
+<p>该布局在入门阶段最常用</p>
+<table>
+<thead>
+<tr>
+<th>自身属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em><strong>android:orientation</strong></em></td>
+<td>设置排列方向</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>子控件属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em><strong>android:layout_gravity</strong></em></td>
+<td>设置子控件在父控件中的位置</td>
+</tr>
+<tr>
+<td><em><strong>android:layout_weight</strong></em></td>
+<td>设置子控件在父控件中的比重</td>
+</tr>
+</tbody></table>
+<p>子控件属性？父布局可以额外添加子控件的属性的，其中有个明显的特点就是，属性都以 <code>layout_</code> 开头.</p>
+<h2 id="RelativeLayout"><a href="#RelativeLayout" class="headerlink" title="RelativeLayout"></a>RelativeLayout</h2><p> <strong>页数：</strong>《第一行代码》P100页</p>
+<p>该布局不常使用，跳过</p>
+<h2 id="FramLayout"><a href="#FramLayout" class="headerlink" title="FramLayout"></a>FramLayout</h2><p><strong>页数：</strong>《第一行代码》P103页</p>
+<p>该布局在<strong>入门阶段</strong>一般不用，跳过（一般在自定义 View 中用的多，通过继承它来实现自己的控件）</p>
+<h2 id="CardView"><a href="#CardView" class="headerlink" title="CardView"></a>CardView</h2><p><strong>页数：</strong>《第一行代码》P431页</p>
+<p>该布局后期很常用，这里做一些补充</p>
+<table>
+<thead>
+<tr>
+<th align="left">自身属性</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em><strong>app:cardCornerRadius</strong></em></td>
+<td align="left">设置圆角</td>
+</tr>
+<tr>
+<td align="left"><em><strong>app:elevation</strong></em></td>
+<td align="left">设置阴影厚度（也指 Z 轴高度）</td>
+</tr>
+<tr>
+<td align="left"><em><strong>app:cardBackgroundColor</strong></em></td>
+<td align="left">设置背景颜色（<strong>注意：</strong>该控件使用 <em><strong>android:background</strong></em> 来改变背景颜色是无效的，需要换成左边这个属性）</td>
+</tr>
+<tr>
+<td align="left"><em><strong>app:cardPreventCornerOverlap</strong></em></td>
+<td align="left">显示完整阴影（如果你的阴影厚度较厚，你会发现你的阴影只显示了部分，使用该属性可以将阴影显示完整）</td>
+</tr>
+<tr>
+<td align="left"><em><strong>app:contentPadding</strong></em></td>
+<td align="left">设置内容的 poadding（间距），除此之外还有<em><strong>app:contentPaddingLeft&#x2F;Right&#x2F;Top&#x2F;Botom</strong></em></td>
+</tr>
+</tbody></table>
+<h3 id="用于复杂布局时的-ConstraintLayout"><a href="#用于复杂布局时的-ConstraintLayout" class="headerlink" title="用于复杂布局时的 ConstraintLayout"></a>用于复杂布局时的 ConstraintLayout</h3><p>该布局为最常用布局，而且现在AS默认的布局就是ConstraintLayout布局，只需要简单的一拖一拉，就能实现比 <code>LinearLayout</code>、<code>RelativeLayout</code> 更强大的效果。</p>
+<p> 这里直接推荐看博客内容：<a target="_blank" rel="noopener" href="https://blog.csdn.net/airsaid/article/details/79052011">约束布局</a></p>
+<p> 也许你们觉得写这些好麻烦，其实，这些多用即便就记住了，还有就是我们可以直接使用 <strong>XML 中的 Design 窗口</strong>用鼠标来拖动，具体的使用会在课上演示</p>
+<h2 id="常用属性-1"><a href="#常用属性-1" class="headerlink" title="常用属性"></a>常用属性</h2><h2 id="android-gravity"><a href="#android-gravity" class="headerlink" title="android:gravity"></a>android:gravity</h2><p> 部分 <code>ViewGroup</code> 拥有该属性，用于设置子控件的重心</p>
+<p> <strong>控件这么多的属性我该怎么记？</strong></p>
+<p>其实你根本不用记住，直接照书抄就是了，后面你想找某个属性，推荐先去 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference">Android 官网</a>（点我进官网，就是你下 AS 的地方）找找，再去百度看他的用法，只要你用得多了，自然而然就记住这些属性了</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><h3 id="id-命名规范"><a href="#id-命名规范" class="headerlink" title="id 命名规范"></a>id 命名规范</h3><p> 具体可参考群里的《阿里巴巴Android开发手册》</p>
+ <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121223709087.png" alt="image-20211121223709087" style="zoom: 80%;" />
+
+<p> <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121223738508.png" alt="image-20211121223738508"></p>
+<p> 除此之外，还有如下命名规范：</p>
+<p>  <strong>【模块名】_【控件】_【界面位置】_【作用】</strong></p>
+<p>  <strong>模块名：</strong>目前你们还设计不到模块相关，可以不用写</p>
+<p>  <strong>控件名：</strong>常见的控件可采用首字母缩写的形式，自定义控件和不常用的建议全写</p>
+<p>  <strong>界面位置：</strong>简单的描述是哪个界面，如下图的 <code>stamp_detail</code> 表示邮票详细界面（可以加上 activity、fragment、item 等字眼用于表示控件所在的容器）</p>
+<p>  <strong>作用：</strong>如果当前界面相同控件过多，强烈建议加上作用</p>
+<p>  大致以上面这样来写 id，这样更利于快速查找，也会让之后的学弟不会对你的代码留下什么印象 : )</p>
+<p>  <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121230412932.png" alt="image-20211121230412932"></p>
+<p> <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121225852596.png" alt="image-20211121225852596"></p>
+<p> <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121230459816.png" alt="image-20211121230459816"></p>
+<h3 id="控件对象命名规范"><a href="#控件对象命名规范" class="headerlink" title="控件对象命名规范"></a>控件对象命名规范</h3><p> <img src="https://gitee.com/guo985892345/typora/raw/master/img/image-20211121232148928.png" alt="image-20211121232148928"></p>
+<p> 虽然是 kt 写得，但各位应该能看懂</p>
+<p> <strong>【控件缩写】+【作用】</strong></p>
+<p> 这里提一句，为什么以 m 开头，因为 Android 官方推荐类中的成员变量以 m 开头，你几乎可以在 Android 官方源码中都能发现这种写法，建议<strong>遵守官方规范</strong></p>
+</blockquote>
+<h2 id="现搓一个登录界面"><a href="#现搓一个登录界面" class="headerlink" title="现搓一个登录界面"></a>现搓一个登录界面</h2><blockquote>
+<p>光听这些估计很无聊，接下来我将现搓一个登陆界面，写登录界面是这次作业中的 Lv2，各位可以用心听一下</p>
+<h2 id="布局代码"><a href="#布局代码" class="headerlink" title="布局代码"></a>布局代码</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line">&gt;<span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:id</span>=<span class="string">&quot;@+id/img_main_head&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">&quot;100dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">&quot;100dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;128dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:src</span>=<span class="string">&quot;@drawable/cqupt&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;parent&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:id</span>=<span class="string">&quot;@+id/et_main_username&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">&quot;300dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;64dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:drawableStart</span>=<span class="string">&quot;@drawable/ic_baseline_account_box_24&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:hint</span>=<span class="string">&quot;账号&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:inputType</span>=<span class="string">&quot;number&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:lines</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@+id/img_main_head&quot;</span> /&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:id</span>=<span class="string">&quot;@+id/et_main_password&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">&quot;300dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:digits</span>=<span class="string">&quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?!=+-_.,&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:drawableStart</span>=<span class="string">&quot;@drawable/ic_baseline_vpn_key_24&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:hint</span>=<span class="string">&quot;密码&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:inputType</span>=<span class="string">&quot;textPassword&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:lines</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@+id/et_main_username&quot;</span> /&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_main_login&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;64dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:text</span>=<span class="string">&quot;登录&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@+id/et_main_password&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="tag">&lt;/<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Activity代码"><a href="#Activity代码" class="headerlink" title="Activity代码"></a>Activity代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">private</span> ImageView mImgHead;</span><br><span class="line">       <span class="keyword">private</span> EditText mEtUsername;</span><br><span class="line">       <span class="keyword">private</span> EditText mEtPassword;</span><br><span class="line">       <span class="keyword">private</span> Button mBtnLogin;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">            <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">            setContentView(R.layout.activity_login);</span><br><span class="line">            initView();</span><br><span class="line">            initLogin();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 写一个方法专门用于初始化 View</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initView</span><span class="params">()</span> &#123;</span><br><span class="line">        mImgHead = findViewById(R.id.img_main_head);</span><br><span class="line">        mEtUsername = findViewById(R.id.et_main_username);</span><br><span class="line">        mEtPassword = findViewById(R.id.et_main_password);</span><br><span class="line">        mBtnLogin = findViewById(R.id.btn_main_login);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 专门用于登录的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initLogin</span><span class="params">()</span> &#123;</span><br><span class="line">        mBtnLogin.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                login();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 执行登录操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">login</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> mEtUsername.getText().toString();</span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> mEtPassword.getText().toString();</span><br><span class="line">        <span class="keyword">if</span> (username.equals(<span class="string">&quot;123456&quot;</span>) &amp;&amp; password.equals(<span class="string">&quot;123456&quot;</span>)) &#123;</span><br><span class="line">            loginSuccess(username, password);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            loginFailure();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 登录成功的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loginSuccess</span><span class="params">(String username, String password)</span> &#123;</span><br><span class="line">        Toast.makeText(<span class="built_in">this</span>, <span class="string">&quot;登陆成功!&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        MainActivity2.startActivity(<span class="built_in">this</span>, username, password);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 登录失败的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loginFailure</span><span class="params">()</span> &#123;</span><br><span class="line">        Toast.makeText(<span class="built_in">this</span>, <span class="string">&quot;账号或者密码好像输错了 :(&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="variable">mExitTime</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 以下为连按两次才能退出</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, KeyEvent event)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * 当当前时间大于上次按返回键的时间 2 秒时</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span> (System.currentTimeMillis() - mExitTime &gt; <span class="number">2000</span>) &#123;</span><br><span class="line">                Toast.makeText(<span class="built_in">this</span>, <span class="string">&quot;再按一次退出程序&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                mExitTime = System.currentTimeMillis();</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>.onKeyDown(keyCode, event);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="再写一个-Activity"><a href="#再写一个-Activity" class="headerlink" title="再写一个 Activity"></a>再写一个 Activity</h2><p>这就写完了？这也太简单了吧，简直有手就行。接下来我们给这个界面加上登录后的跳转</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126125722859.png" alt="image-20221126125722859" style="zoom:50%;" />
+
+<h3 id="intent-跳转"><a href="#intent-跳转" class="headerlink" title="intent 跳转"></a>intent 跳转</h3><p><strong>页数：</strong>《第一行代码》P41 ~ P43</p>
+<p>只需要使用显示 Intent 就可以了，就两行代码</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(<span class="built_in">this</span>, MainActivity.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<h3 id="对于-Intent-的正确写法（以下为扩展内容，听不懂没事）"><a href="#对于-Intent-的正确写法（以下为扩展内容，听不懂没事）" class="headerlink" title="对于 Intent 的正确写法（以下为扩展内容，听不懂没事）"></a>对于 Intent 的正确写法（以下为扩展内容，听不懂没事）</h3><p> 如果我们要传入一些数据给 <code>ContentActivity</code> 时，一般我们会在 <code>MainActivity</code> 直接这样写</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(<span class="built_in">this</span>, ContentActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;username&quot;</span>, username);</span><br><span class="line">intent.putExtra(<span class="string">&quot;password&quot;</span>, password);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<p>这样写确实很方便，也没有什么问题</p>
+<p><strong>但</strong>在之后的开发中，我们更推荐将启动事件交给要启动的类来处理，这样可以实现类与类之间的解耦合</p>
+<p>应该在 <code>MainActivity2</code> 中写一个 static 的方法用于启动自己，让它来决定你该传入什么数据才能启动它</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity2</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">INTENT_USER_NAME</span> <span class="operator">=</span> <span class="string">&quot;username&quot;</span>; <span class="comment">// intent 中的数据标记</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">INTENT_PASSWORD</span> <span class="operator">=</span> <span class="string">&quot;password&quot;</span>; <span class="comment">// intent 中的数据标记</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 写一个 static 方法，让它来决定该传入那些数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startActivity</span><span class="params">(Context context, String username, String password)</span> &#123;</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(context, MainActivity2.class);</span><br><span class="line">        intent.putExtra(INTENT_USER_NAME, username);</span><br><span class="line">        intent.putExtra(INTENT_PASSWORD, password);</span><br><span class="line">        context.startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main2);</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> getIntent();</span><br><span class="line">        <span class="type">String</span> <span class="variable">mUserName</span> <span class="operator">=</span> intent.getStringExtra(INTENT_USER_NAME);</span><br><span class="line">        <span class="type">String</span> <span class="variable">mPassword</span> <span class="operator">=</span> intent.getStringExtra(INTENT_PASSWORD);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么在 <code>LoginActivity</code>中可以直接一行代码启动 <code>MainActivity2</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MainActivity2.startActivity(<span class="built_in">this</span>, username, password);</span><br></pre></td></tr></table></figure>
+
+<p>这样的写法在写大项目时是必须遵守的，写在这里只是为了让你们提前知道有这个规范</p>
+<h2 id="补充启动界面"><a href="#补充启动界面" class="headerlink" title="补充启动界面"></a>补充启动界面</h2><h3 id="注册文件改默认启动"><a href="#注册文件改默认启动" class="headerlink" title="注册文件改默认启动"></a>注册文件改默认启动</h3><blockquote>
+<p><strong>页数：</strong>《第一行代码》P35 最底部</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这一行代码就是设置启动 <code>Activity</code> 的</p>
+<p>只需要把它改到你想设置的 <code>Activity</code> 里，在Android12中，默认启动activity必需要设置<code>android:exported=&quot;true&quot;</code></p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126123939647.png" style="zoom:50%;" />
+
+<h3 id="Activity-的-finish-方法"><a href="#Activity-的-finish-方法" class="headerlink" title="Activity 的 finish() 方法"></a>Activity 的 finish() 方法</h3><p><strong>页数：</strong>《第一行代码》P40 最底部</p>
+<p>调用该方法会直接销毁当前 <code>Activity</code>，并移出 <code>Activity</code> 栈（Activity 栈的概念可以看书 P53）</p>
+</blockquote>
+<h2 id="扩展内容"><a href="#扩展内容" class="headerlink" title="扩展内容"></a>扩展内容</h2><h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><blockquote>
+<h3 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h3><p>相信在写了上面懵懵懂懂的代码后，你也对 Activity 有了一个初步的认识。</p>
+<p>如果说 XML 布局是应用的外表，那么 Activity 就是应用的内核，用于控制 XML(外表) 实时变化，达到与用户交流的目的</p>
+<p>其中一个 Activity 掌管了一个对应的 XML 布局，XML 布局中的控件，都可以使用 <code>findViewById()</code> 这个方法转换成对应的一个对象，然后 Activity 就可以直接调用这些对象自带的方法用于设置一些属性</p>
+<h3 id="Activity-启动模式"><a href="#Activity-启动模式" class="headerlink" title="Activity 启动模式"></a>Activity 启动模式</h3><p><strong>页数：</strong>《第一行代码》P63</p>
+<p>这东西平时不会经常用到，使用也很简单，你们下去看一下书就能理解了。主要用于使用返回键退出当前 Activity 或者 Activity 互相启动时会用到</p>
+</blockquote>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><blockquote>
+<p><strong>页数：</strong>《第一行代码》P142</p>
+<p>Fragment 可以理解为一个小型的 Activity，它也可以向 Activity 一样，与 XML 视图进行一对一绑定，但它必须寄生于一个 Activity 中，不能独立存在</p>
+</blockquote>
+<h2 id="不讲内容"><a href="#不讲内容" class="headerlink" title="不讲内容"></a>不讲内容</h2><blockquote>
+<p>该部分内容对于你们目前阶段难以理解，故写在这里，现在只作了解即可，之后会再来详细讲解</p>
+<h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><blockquote>
+<p><strong>页数：</strong>《第一行代码》P53页</p>
+<p>下学期会进行更深入的讲解，再加上目前你们涉及不到这个，所以就不写这个了</p>
+</blockquote>
+<h2 id="Fragment-生命周期"><a href="#Fragment-生命周期" class="headerlink" title="Fragment 生命周期"></a>Fragment 生命周期</h2><blockquote>
+<p><strong>页数：</strong>《第一行代码》P151</p>
+<p>与 Activity 生命周期类似，这节课也不会讲解该内容</p>
+</blockquote>
+<h2 id="FragmentManger"><a href="#FragmentManger" class="headerlink" title="FragmentManger"></a>FragmentManger</h2><blockquote>
+<p><strong>页数：</strong>《第一行代码》P147</p>
+<p>Activity 中 Fragment 的管理者</p>
+</blockquote>
+</blockquote>
+<h2 id="补充问题"><a href="#补充问题" class="headerlink" title="补充问题"></a>补充问题</h2><h3 id="设置字体大小"><a href="#设置字体大小" class="headerlink" title="设置字体大小"></a>设置字体大小</h3><blockquote>
+<p>AS默认的字体有点小，我们设置一下</p>
+<h3 id="窗口字号设置"><a href="#窗口字号设置" class="headerlink" title="窗口字号设置"></a>窗口字号设置</h3><p>File - Settings - Appearance          <strong>注意：</strong>这个只能设置除代码外的字体大小，也就是窗口字体大小<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116112521570.png" alt="image-20221116112521570" style="zoom:50%;" /></p>
+<h3 id="代码字体设置"><a href="#代码字体设置" class="headerlink" title="代码字体设置"></a>代码字体设置</h3><p>File - Settings - Editor - Font         <strong>这里才是设置代码字体大小的地方</strong><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116112439942.png" alt="image-20221116112439942" style="zoom:50%;" /></p>
+<h3 id="Ctrl-滑轮-设置代码字号"><a href="#Ctrl-滑轮-设置代码字号" class="headerlink" title="Ctrl + 滑轮 设置代码字号"></a>Ctrl + 滑轮 设置代码字号</h3><p>File - Settings - Editor - General     <strong>开启 Ctrl + 滑轮设置字体大小很有用</strong><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116112338817.png" alt="image-20221116112338817" style="zoom:50%;" /></p>
+</blockquote>
+<h3 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h3><blockquote>
+<p>相信在写 java 中直接输 sout 而感到十分方便，其实这些都是可以自己去设置的</p>
+<p>下面给出一个可以快捷打出 Log.d 的快捷键的设置方式</p>
+<ul>
+<li><strong>打开设置</strong></li>
+</ul>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116113950566.png" alt="image-20221116113950566" style="zoom:50%;" />
+
+<ul>
+<li><p><strong>基本设置</strong></p>
+<img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221116150943141.png" alt="image-20221116150943141" style="zoom:50%;" />
+
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android.util.Log.d(<span class="string">&quot;TAG&quot;</span>,<span class="string">&quot;($class$:$line$)--&gt;&gt;&quot;</span>);</span><br><span class="line"><span class="comment">// TAG: 换成你自己想设置的 tag（用于过滤 Log，快速找到）</span></span><br><span class="line"><span class="comment">// $class$、$line$: 固定写法</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>设置属性</strong></p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116151038364.png" alt="image-20221116151038364" style="zoom:50%;" />
+</li>
+<li><p><strong>设置语言</strong></p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116114614850.png" alt="image-20221116114614850" style="zoom:50%;" />
+
+<ul>
+<li><p><strong>OK，接下来你可以在代码中直接输入 “ld” 然后回车，实现 sout 一样的效果</strong></p>
+<img src="https://gitee.com/guo985892345/typora/raw/master/img/typoraimage-20211113001706516.png" alt="image-20211113001706516" style="zoom:33%;" /></li>
+</ul>
+<p>经过了这个教程后，相信你也可以设置其他快捷键了.</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="推荐插件"><a href="#推荐插件" class="headerlink" title="推荐插件"></a>推荐插件</h3><blockquote>
+<p>装上一些插件可以很大部分上提高我们工作效率，在这里分享给大家几个插件</p>
+<p>插件在这里下载：</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116151510111.png" alt="image-20221116151510111" style="zoom:50%;" />
+
+<ul>
+<li><p><strong>Translation</strong></p>
+<blockquote>
+<img src="C:\Users\WhiteNight\AppData\Roaming\Typora\typora-user-images\image-20221126104258509.png" alt="image-20221126104258509" style="zoom:50%;" />
+
+<p>一个很好用的翻译插件，对于英文注释来说可以直接翻译成中文</p>
+<p><strong>使用方式：</strong>选中英文后直接 Ctrl + Shift + Y，也可以直接翻译文档</p>
+<p><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116152353988.png" alt="image-20221116152353988"></p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116152618145.png" alt="image-20221116152618145" style="zoom:50%;" />
+
+<p>注：谷歌翻译停止中国访问，该服务需要梯子，或者使用替他翻译引擎。</p>
+<p>如果挂了梯子还显示这个就需要<a href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">设置代理</a><img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116233947671.png" alt="image-20221116233947671" style="zoom:50%;" /></p>
+<p>这里可以替换其他搜索引擎<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116152554999.png" alt="image-20221116152554999" style="zoom: 33%;" /></p>
+</blockquote>
+</li>
+<li><p><strong>Rainbow Brackets</strong></p>
+<blockquote>
+<img src="https://gitee.com/guo985892345/typora/raw/master/img/typoraimage-20211113003325793.png" alt="image-20211113003325793" style="zoom:50%;" />
+
+<p>括号总是白色，太难找到对应？试试这款插件，让你代码中的括号充满色彩！</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="如何打包"><a href="#如何打包" class="headerlink" title="如何打包"></a>如何打包</h3><blockquote>
+<p>当手机装上了你自己的App，你也想分享给其他小伙伴一起使用，可是当你发现通过qq发送给别人的时候，他们安装不了，因为我们手机是通过AS直接装的，不是正式的apk。</p>
+</blockquote>
+<ol>
+<li><p>打开Build -&gt; Generate Signed Bundle &#x2F; APK…</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116153122050.png" alt="image-20221116153122050" style="zoom:50%;" />
+</li>
+<li><p>选择apk，点击next</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116153207864.png" alt="image-20221116153207864" style="zoom:50%;" />
+</li>
+<li><p>创建签名文件</p>
+<blockquote>
+<p>生成 apk 需要签名文件，这个签名文件主要是用于检测当前 apk 是否已经被修改。比如你通过反编译修改了我的 apk，那么签名文件就会被破坏，其他人就可以通过签名文件来判断是否被修改</p>
+</blockquote>
+</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116153244714.png" alt="image-20221116153244714" style="zoom:50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116153928145.png" alt="image-20221116153928145" style="zoom:50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116154003036.png" alt="image-20221116154003036" style="zoom:50%;" />
+
+<ol start="4">
+<li><p>选择relsase包</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116154730227.png" alt="image-20221116154730227" style="zoom:50%;" />
+</li>
+<li><p>查看apk</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116154321753.png" alt="image-20221116154321753" style="zoom:50%;" /></li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116154604549.png" alt="image-20221116154604549" style="zoom:50%;" />
+
+<h3 id="AS彻底卸载"><a href="#AS彻底卸载" class="headerlink" title="AS彻底卸载"></a>AS彻底卸载</h3><blockquote>
+<p>时间长了AS会出现一些奇怪的问题，我们就需要彻底卸载AS了</p>
+</blockquote>
+<ol>
+<li><p>在设置里卸载AS</p>
+</li>
+<li><p>打开下面这个路径，删除所有与 AS 有关的即可</p>
+<p>C:\Users\WhiteNight\AppData\Roaming\Google</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116175135744.png" alt="image-20221116175135744" style="zoom:50%;" />
+
+<p><strong>注1：</strong>图中的 <strong>“WhiteNight”</strong> 是电脑的用户名，打开你自己的用户目录</p>
+<p><strong>注2：</strong>其中 <strong>“AppData”</strong> 为隐藏文件夹，自己打开显示隐藏文件夹即可找到</p>
+</li>
+<li><p>如果你想弃坑 Android 了 ，就可以把 gradle 删了🥀</p>
+</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116175509160.png" alt="image-20221116175509160" style="zoom:50%;" />
+
+<h3 id="更改gradle路径"><a href="#更改gradle路径" class="headerlink" title="更改gradle路径"></a>更改gradle路径</h3><blockquote>
+<p>AS下载的gradle路径是在C盘的（如上图），到了后期gradle文件会越来越大，C盘会爆满，我们将它移到其他盘</p>
+</blockquote>
+<p>1.打开“<strong>系统高级设置</strong>”，选择“<strong>环境变量</strong>”</p>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116232547400.png" alt="image-20221116232547400" style="zoom:50%;" />
+
+<ol start="2">
+<li>找到GRADLE_USER_HOME</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116232720376.png" alt="image-20221116232720376" style="zoom:50%;" />
+
+<ol start="3">
+<li>选择你想存放的地方</li>
+</ol>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116232815357.png" alt="image-20221116232815357" style="zoom:50%;" />
+
+<ol start="4">
+<li>确定保存</li>
+</ol>
+<h3 id="梯子的问题"><a href="#梯子的问题" class="headerlink" title="梯子的问题"></a>梯子的问题</h3><p>github和goole需要梯子，搞计算机的，梯子是必不可少的，你们可以自己去找梯子，也可以私下找我们。</p>
+<h3 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h3><blockquote>
+<p>如果你有梯子的话可以给AS设置代理，这样可以在AS里访问外网（例如谷歌翻译）</p>
+</blockquote>
+<blockquote>
+<p>打开设置，找到HTTP Proxy，选择手动代理设置，方式选择HTTP，地址默认就是<code>127.0.0.1</code>,端口号可以到Windows的设置-&gt;网络和Internet-&gt;代理-&gt;手动代理设置-&gt;编辑，点击编辑就能看到端口号了</p>
+</blockquote>
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221116233651876.png" alt="image-20221116233651876" style="zoom:50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126103732094.png" alt="image-20221126103732094" style="zoom:50%;" />
+
+<img src="https://typora-1256766878.cos.ap-chongqing.myqcloud.com/image-20221126103803685.png" alt="image-20221126103803685" style="zoom:50%;" />
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本节课我们主要学习了Android Studio的使用，掌握了一些常用控件和布局，对Activity也有了一些认识。</p>
+<p>在经历了这半学期的学习后，相信你们从网校这里学习到了很多，还记得开始入群时有500多人，到现在只有少数人在活跃，希望在接下来的路，你们能坚持走完，最后回头来看你会感谢如今的自己。</p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item email" href="mailto:?subject=安卓第一次课 - WhiteNight's Blog&amp;body=https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://whitenight123.github.io/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/01/01/hello-world/">Hello World</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/09/29/Android%E5%AD%A6%E4%B9%A0/">Android学习清单</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\2022\09\29\Android学习\" title="Android学习清单"><span class="title">Android学习清单</span><span class="excerpt">这份文档概述了 Android 开发学习的路径，涵盖了寒假和大一学习路线。寒假推荐学习 Kotlin 基础、MVP/MVVM 架构、自定义 View 和滑动冲突等基础知识。大一下学期及以后，则需深入学习 Kotlin、四大组件、Rxj...</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="WhiteNight123/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Android-Studio"><span class="toc-text">安装Android Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AAAPP"><span class="toc-text">第一个APP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E4%B9%A6%E7%B1%8D"><span class="toc-text">推荐书籍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%A6%E4%B8%AD%E7%9A%84%E5%9D%91"><span class="toc-text">书中的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#support-%E5%AF%BC%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">support 导包问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-text">XML简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">Android 项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#manifests"><span class="toc-text">manifests</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java"><span class="toc-text">java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#res"><span class="toc-text">res</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drawable"><span class="toc-text">drawable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layout"><span class="toc-text">layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mipmap"><span class="toc-text">mipmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#values"><span class="toc-text">values</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86HelloWorld"><span class="toc-text">认识HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">java 代码讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%AD%E5%8F%A5-setContentView"><span class="toc-text">关键语句 setContentView()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setContentView-%E5%AD%97%E9%9D%A2%E6%84%8F%E6%80%9D%E5%B0%B1%E6%98%AF%EF%BC%9A%E8%AE%BE%E7%BD%AE%E5%86%85%E5%AE%B9%E8%A7%86%E5%9B%BE"><span class="toc-text">setContentView 字面意思就是：设置内容视图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layout-%E4%B8%AD%E7%9A%84-XML"><span class="toc-text">layout 中的 XML</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8D%95%E4%BD%8D%E2%80%94%E2%80%94%E6%8E%A7%E4%BB%B6"><span class="toc-text">视图的基本单位——控件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#View"><span class="toc-text">View</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-View"><span class="toc-text">常用的 View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TextView"><span class="toc-text">TextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button"><span class="toc-text">Button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EditText"><span class="toc-text">EditText</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ImageView"><span class="toc-text">ImageView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E4%B9%A6%E6%B2%A1%E6%9C%89%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">补充书没有的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scaleType"><span class="toc-text">scaleType</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ShapeableImageView"><span class="toc-text">ShapeableImageView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">常用属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android-layout-margin-%E4%B8%8E-padding"><span class="toc-text">android:layout_margin 与 padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android-background"><span class="toc-text">android:background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Material%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-text">Material组件库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewGroup"><span class="toc-text">ViewGroup</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80-ViewGroup"><span class="toc-text">基础 ViewGroup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinearLayout"><span class="toc-text">LinearLayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RelativeLayout"><span class="toc-text">RelativeLayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FramLayout"><span class="toc-text">FramLayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CardView"><span class="toc-text">CardView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%A4%8D%E6%9D%82%E5%B8%83%E5%B1%80%E6%97%B6%E7%9A%84-ConstraintLayout"><span class="toc-text">用于复杂布局时的 ConstraintLayout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7-1"><span class="toc-text">常用属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android-gravity"><span class="toc-text">android:gravity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-text">命名规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#id-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-text">id 命名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E5%AF%B9%E8%B1%A1%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-text">控件对象命名规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E6%90%93%E4%B8%80%E4%B8%AA%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2"><span class="toc-text">现搓一个登录界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E4%BB%A3%E7%A0%81"><span class="toc-text">布局代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity%E4%BB%A3%E7%A0%81"><span class="toc-text">Activity代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E5%86%99%E4%B8%80%E4%B8%AA-Activity"><span class="toc-text">再写一个 Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intent-%E8%B7%B3%E8%BD%AC"><span class="toc-text">intent 跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E-Intent-%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95%EF%BC%88%E4%BB%A5%E4%B8%8B%E4%B8%BA%E6%89%A9%E5%B1%95%E5%86%85%E5%AE%B9%EF%BC%8C%E5%90%AC%E4%B8%8D%E6%87%82%E6%B2%A1%E4%BA%8B%EF%BC%89"><span class="toc-text">对于 Intent 的正确写法（以下为扩展内容，听不懂没事）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2"><span class="toc-text">补充启动界面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E6%94%B9%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8"><span class="toc-text">注册文件改默认启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity-%E7%9A%84-finish-%E6%96%B9%E6%B3%95"><span class="toc-text">Activity 的 finish() 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%86%85%E5%AE%B9"><span class="toc-text">扩展内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity-%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">Activity 启动模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-text">Fragment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%AE%B2%E5%86%85%E5%AE%B9"><span class="toc-text">不讲内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Activity 生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Fragment 生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FragmentManger"><span class="toc-text">FragmentManger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E9%97%AE%E9%A2%98"><span class="toc-text">补充问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="toc-text">设置字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E5%AD%97%E5%8F%B7%E8%AE%BE%E7%BD%AE"><span class="toc-text">窗口字号设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">代码字体设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ctrl-%E6%BB%91%E8%BD%AE-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E5%AD%97%E5%8F%B7"><span class="toc-text">Ctrl + 滑轮 设置代码字号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE"><span class="toc-text">快捷键设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E6%8F%92%E4%BB%B6"><span class="toc-text">推荐插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85"><span class="toc-text">如何打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AS%E5%BD%BB%E5%BA%95%E5%8D%B8%E8%BD%BD"><span class="toc-text">AS彻底卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9gradle%E8%B7%AF%E5%BE%84"><span class="toc-text">更改gradle路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%AD%90%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">梯子的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-text">设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+<script async src="/js/fireworksontype.js"></script><script async src="/js/effectsonclick.js"></script>
+</div></body></html>

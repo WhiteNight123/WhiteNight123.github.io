@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>Android学习清单 - WhiteNight's Blog</title>
+
+  
+    <meta name="description" content="这份文档概述了 Android 开发学习的路径，涵盖了寒假和大一学习路线。寒假推荐学习 Kotlin 基础、MVP&#x2F;MVVM 架构、自定义 View 和滑动冲突等基础知识。大一下学期及以后，则需深入学习 Kotlin、四大组件、Rxjava、Retrofit、Room 等框架和工具，并掌握 MVVM 架构的完整应用。此外，还建议学习 Material Design、线程池、RecyclerView">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android学习清单">
+<meta property="og:url" content="https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/">
+<meta property="og:site_name" content="WhiteNight&#39;s Blog">
+<meta property="og:description" content="这份文档概述了 Android 开发学习的路径，涵盖了寒假和大一学习路线。寒假推荐学习 Kotlin 基础、MVP&#x2F;MVVM 架构、自定义 View 和滑动冲突等基础知识。大一下学期及以后，则需深入学习 Kotlin、四大组件、Rxjava、Retrofit、Room 等框架和工具，并掌握 MVVM 架构的完整应用。此外，还建议学习 Material Design、线程池、RecyclerView">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://whitenight123.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2022-09-29T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T09:14:06.076Z">
+<meta property="article:author" content="WhiteNight">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://whitenight123.github.io/images/avatar.jpg">
+  
+  
+  
+  <meta name="keywords" content="Android">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2022-09-29T20:00:00+08:00","dateModified":"2025-03-11T17:14:06+08:00","datePublished":"2022-09-29T20:00:00+08:00","description":"","headline":"Android学习清单","mainEntityOfPage":{"@type":"WebPage","@id":"https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/"},"publisher":{"@type":"Organization","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/","keywords":"Android","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">WhiteNight's Blog</div><div class="sub normal cap">充满激情的技术博客</div><div class="sub hover cap" style="opacity:0"> Designed by WhiteNight</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="最新" href="/"><span>最新</span></a><a class="nav-item" title="分类" href="/categories/"><span>分类</span></a><a class="nav-item" title="归档" href="/archives/"><span>归档</span></a><a class="nav-item" title="关于" href="/about/"><span>关于</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2023/04/19/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B/"><span class="title">蓝桥杯备赛</span></a><a class="item title" href="/2024/05/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98/"><span class="title">蓝桥杯真题</span></a><a class="item title" href="/2024/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%BE%85%E5%AF%BC%E8%AF%BE/"><span class="title">蓝桥杯辅导课</span></a><a class="item title" href="/2024/07/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0(c++)/"><span class="title">算法笔记</span></a><a class="item title" href="/2024/09/19/%E6%B4%9B%E8%B0%B7%E9%A2%98%E5%8D%95/"><span class="title">洛谷题单</span></a><a class="item title" href="/2024/01/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/"><span class="title">算法基础课</span></a><a class="item title" href="/2024/09/29/%E4%BF%9D%E7%A0%94%E7%BB%8F%E9%AA%8C%E8%B4%B4/"><span class="title">保研经验贴</span></a><a class="item title" href="/2024/09/09/%E5%8A%9B%E6%89%A3Hot100/"><span class="title">力扣Hot100</span></a><a class="item title" href="/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"><span class="title">安卓第一次课</span></a><a class="item title" href="/2024/01/29/pat%E4%B9%99%E7%BA%A7/"><span class="title">PAT 乙级</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/WhiteNight123" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/github.png"/></a><a class="social" href="https://blog.csdn.net/qq_35274980" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/csdn.png"/></a><a class="social" href="https://www.zhihu.com/people/jiu-xin-57-97" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/zhihu.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Android/">Android</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-09-29T12:00:00.000Z">2022-09-29</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-03-11T09:14:06.076Z">2025-03-11</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Android学习清单</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>Android学习清单</p>
+<h1 id="寒假学习路线"><a href="#寒假学习路线" class="headerlink" title="寒假学习路线"></a>寒假学习路线</h1><blockquote>
+<p>按照传统，寒假考核不能使用非官方库，所以以下内容不包含第三方库</p>
+<p>难度：kotlin &lt; 框架 &lt; 自定义View</p>
+</blockquote>
+<h2 id="1、kotlin"><a href="#1、kotlin" class="headerlink" title="1、kotlin"></a>1、kotlin</h2><blockquote>
+<p>可以买《第一行代码》第三版进行学习，上面附带讲解了 <code>kotlin</code> 的使用</p>
+<p><strong>注意：</strong> kotlin <strong>并不是</strong>寒假必须学习的内容，寒假仍能使用 java 来写。在下学期开学会给你们几周的时间来学习（自学，我们不会教），所以可以跳过先学下面的</p>
+</blockquote>
+<h2 id="2、框架相关"><a href="#2、框架相关" class="headerlink" title="2、框架相关"></a>2、框架相关</h2><blockquote>
+<p>框架方面比较深奥难懂，建议去GitHub上搜索 wanAndroid 项目阅读一下别人写的源码，不然光看博客的解释不动手操作，是很难理解框架的使用的</p>
+</blockquote>
+<h3 id="2-1、MVP"><a href="#2-1、MVP" class="headerlink" title="2.1、MVP"></a>2.1、MVP</h3><blockquote>
+<p>虽然后期Android开发都是使用的MVVM，但MVVM是MVP的演化版，MVP还是值得去看一看的</p>
+</blockquote>
+<h3 id="2-2、MVVM"><a href="#2-2、MVVM" class="headerlink" title="2.2、MVVM"></a>2.2、MVVM</h3><blockquote>
+<p>Android官方推荐架构（但目前在向 MVI 演化了），需要与 <code>LiveData</code>、<code>ViewModel</code> 配合使用</p>
+</blockquote>
+<h4 id="2-2-1、ViewModel"><a href="#2-2-1、ViewModel" class="headerlink" title="2.2.1、ViewModel"></a>2.2.1、ViewModel</h4><blockquote>
+<p><code>ViewModel</code> 主要与生命周期相关，生命周期这概念需要你们多写代码才能彻底理解，可以不急着去彻底学懂</p>
+</blockquote>
+<h4 id="2-2-2、LiveData"><a href="#2-2-2、LiveData" class="headerlink" title="2.2.2、LiveData"></a>2.2.2、LiveData</h4><blockquote>
+<p>寒假期间搞清楚怎么用即可，主要是配合MVVM中的网络层进行回调</p>
+</blockquote>
+<h4 id="2-2-3、DataBinding"><a href="#2-2-3、DataBinding" class="headerlink" title="2.2.3、DataBinding"></a>2.2.3、DataBinding</h4><blockquote>
+<p>目前 <code>DataBinding</code> 有一些奇怪的bug，我们一般把他当成了 <code>ViewBinding</code> 在用</p>
+</blockquote>
+<h2 id="3、自定义View与滑动冲突"><a href="#3、自定义View与滑动冲突" class="headerlink" title="3、自定义View与滑动冲突"></a>3、自定义View与滑动冲突</h2><blockquote>
+<p>自定义 View 方面比较难且耗时间，<strong>如果你有想实现的一些复杂控件</strong>，可以来看看这一块（比如写一个转动的风车）</p>
+</blockquote>
+<h3 id="3-1、自定义View"><a href="#3-1、自定义View" class="headerlink" title="3.1、自定义View"></a>3.1、自定义View</h3><blockquote>
+<p>点击跳转<a href="#24%E8%87%AA%E5%AE%9A%E4%B9%89View">自定义View</a></p>
+</blockquote>
+<h3 id="3-2、滑动冲突"><a href="#3-2、滑动冲突" class="headerlink" title="3.2、滑动冲突"></a>3.2、滑动冲突</h3><blockquote>
+<p>滑动冲突是设计自定义View必会的</p>
+<p>点击跳转<a href="#25%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81">滑动冲突</a></p>
+</blockquote>
+<h2 id="4、自己撸后端（不推荐）"><a href="#4、自己撸后端（不推荐）" class="headerlink" title="4、自己撸后端（不推荐）"></a>4、自己撸后端（不推荐）</h2><blockquote>
+<p>不是很推荐，光是 Android 的知识你都学不完，当然，卷王除外</p>
+</blockquote>
+<h1 id="大一下及以后学习路线"><a href="#大一下及以后学习路线" class="headerlink" title="大一下及以后学习路线"></a>大一下及以后学习路线</h1><blockquote>
+<p>东西有些多，其实学长我们好多都没学过😂</p>
+</blockquote>
+<h2 id="1、必须内容"><a href="#1、必须内容" class="headerlink" title="1、必须内容"></a>1、必须内容</h2><h3 id="1-1、kotlin"><a href="#1-1、kotlin" class="headerlink" title="1.1、kotlin"></a>1.1、kotlin</h3><h3 id="1-2、四大组件"><a href="#1-2、四大组件" class="headerlink" title="1.2、四大组件"></a>1.2、四大组件</h3><blockquote>
+<p>除掉 <code>ContenProvder</code> 可不用学习</p>
+<h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><h3 id="Broadcast"><a href="#Broadcast" class="headerlink" title="Broadcast"></a>Broadcast</h3></blockquote>
+<h3 id="1-3、Rxjava的使用"><a href="#1-3、Rxjava的使用" class="headerlink" title="1.3、Rxjava的使用"></a>1.3、Rxjava的使用</h3><h3 id="1-4、Retrofit的使用"><a href="#1-4、Retrofit的使用" class="headerlink" title="1.4、Retrofit的使用"></a>1.4、Retrofit的使用</h3><blockquote>
+<h3 id="与Rxjava配套使用"><a href="#与Rxjava配套使用" class="headerlink" title="与Rxjava配套使用"></a>与Rxjava配套使用</h3><h3 id="与协程配套使用"><a href="#与协程配套使用" class="headerlink" title="与协程配套使用"></a>与协程配套使用</h3></blockquote>
+<h3 id="1-5、Room的使用"><a href="#1-5、Room的使用" class="headerlink" title="1.5、Room的使用"></a>1.5、Room的使用</h3><blockquote>
+<h3 id="与Rxjava配套使用-1"><a href="#与Rxjava配套使用-1" class="headerlink" title="与Rxjava配套使用"></a>与Rxjava配套使用</h3><h3 id="与协程配套使用-1"><a href="#与协程配套使用-1" class="headerlink" title="与协程配套使用"></a>与协程配套使用</h3></blockquote>
+<h3 id="1-6、MVVM-ViewModel-LiveData-DataBinding-Retrofit-Rxjava-Room"><a href="#1-6、MVVM-ViewModel-LiveData-DataBinding-Retrofit-Rxjava-Room" class="headerlink" title="1.6、MVVM + ViewModel + LiveData + DataBinding + Retrofit + Rxjava + Room"></a>1.6、MVVM + ViewModel + LiveData + DataBinding + Retrofit + Rxjava + Room</h3><blockquote>
+<p>这是掌邮目前的框架，市面上的大部分应用应该都是类似于这样设计的</p>
+<p>以下是对于 Android 之后发展的推测（仅代表个人观点）：</p>
+<p><code>Rxjava</code> 与 <code>协程</code> 大概率会共存，因为 <code>Rxjava</code> 适合处理复杂数据流，协程更适合一般使用</p>
+<p><code>LiveData</code> 有几率会被 <code>Flow</code> 代替，但 <code>LiveData</code> 更简便，适用于大部分需求</p>
+<p><code>XML View</code> 与 <code>Compose</code> 以后应该会共存（个人认为各有各的优势）</p>
+<p>还有现在谷歌开始推荐 <code>MVI</code> 架构了（靠，谷歌真的是要累死我们开发者）</p>
+</blockquote>
+<h2 id="2、扩展内容"><a href="#2、扩展内容" class="headerlink" title="2、扩展内容"></a>2、扩展内容</h2><blockquote>
+<p>学长们不讲或讲不细的自学内容<br>推荐学习软件：稀土掘金<br>推荐大佬文章：<a target="_blank" rel="noopener" href="https://github.com/leavesC/AndroidGuide">https://github.com/leavesC/AndroidGuide</a></p>
+</blockquote>
+<h3 id="2-1、Material-Design"><a href="#2-1、Material-Design" class="headerlink" title="2.1、Material Design"></a>2.1、Material Design</h3><blockquote>
+<p>这里面很多便捷的控件及用法，比如：<code>TabLayout</code> 直接添加小圆点、共享元素动画等</p>
+<p>推荐直接看官网：<a target="_blank" rel="noopener" href="https://material.io/">https://material.io/</a></p>
+<p>推荐去打包他的源码：<a target="_blank" rel="noopener" href="https://github.com/material-components/material-components-android">源码</a><br>（虽然源码没写注释，但想实现某个功能时可以去看看是否已经有实现了的）</p>
+</blockquote>
+<h3 id="2-2、线程池"><a href="#2-2、线程池" class="headerlink" title="2.2、线程池"></a>2.2、线程池</h3><blockquote>
+<p>线程池作业：<a target="_blank" rel="noopener" href="https://github.com/985892345/Android_Learning_Route/blob/main/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BD%9C%E4%B8%9A.md">https://github.com/985892345/Android_Learning_Route/blob/main/线程池作业.md</a></p>
+<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><blockquote>
+<p>使用LinedList实现阻塞队列</p>
+</blockquote>
+<h3 id="仿写CacheThreadPool等java自带的几个线程池"><a href="#仿写CacheThreadPool等java自带的几个线程池" class="headerlink" title="仿写CacheThreadPool等java自带的几个线程池"></a>仿写CacheThreadPool等java自带的几个线程池</h3></blockquote>
+<h3 id="2-3、RecyclerView高阶用法"><a href="#2-3、RecyclerView高阶用法" class="headerlink" title="2.3、RecyclerView高阶用法"></a>2.3、RecyclerView高阶用法</h3><blockquote>
+<p>RecyclerView进阶作业：<a target="_blank" rel="noopener" href="https://github.com/985892345/Android_Learning_Route/blob/main/RecyclerView%E8%BF%9B%E9%98%B6%E4%BD%9C%E4%B8%9A.md">https://github.com/985892345/Android_Learning_Route/blob/main/RecyclerView进阶作业.md</a></p>
+<h3 id="1、点击事件不要写在onBindViewHolder中"><a href="#1、点击事件不要写在onBindViewHolder中" class="headerlink" title="1、点击事件不要写在onBindViewHolder中"></a>1、点击事件不要写在onBindViewHolder中</h3><h3 id="2、实现侧滑删除、长按移动Item（这些官方都有封装好的接口）"><a href="#2、实现侧滑删除、长按移动Item（这些官方都有封装好的接口）" class="headerlink" title="2、实现侧滑删除、长按移动Item（这些官方都有封装好的接口）"></a>2、实现侧滑删除、长按移动Item（这些官方都有封装好的接口）</h3><h3 id="3、notifyItemChanged-position：Int-paylosd：Any"><a href="#3、notifyItemChanged-position：Int-paylosd：Any" class="headerlink" title="3、notifyItemChanged ( position：Int, paylosd：Any? )"></a>3、notifyItemChanged ( position：Int, paylosd：Any? )</h3><blockquote>
+<p>这是<strong>两个形参</strong>的刷新，后面有一个单独的参数 <code>paylosd: Any?</code></p>
+<p>该方法与 <code>onBindViewHolder(holder, position, payloads)</code> 三个参数的回调有关系</p>
+<blockquote>
+<p><strong>补充内容</strong></p>
+<p>刷新时图片 rv 的图片会闪动</p>
+<p>该问题与 rv 的缓存有关，因为在刷新时这个 <code>ViewHolder</code> 与缓存中进行了互换，相当于重新加载了图片</p>
+<p>解决办法：调用带有 <code>paylosd</code> 参数的刷新，取消与缓存的互换</p>
+</blockquote>
+</blockquote>
+<h3 id="4、差分刷新-DiffUtil"><a href="#4、差分刷新-DiffUtil" class="headerlink" title="4、差分刷新 DiffUtil"></a>4、差分刷新 DiffUtil</h3><blockquote>
+<p>DiffUtil 中也有一个可重写的方法，其中带有 <code>paylosd</code> 参数</p>
+<p><strong>注：</strong> 网上部分博客的差分比较有些问题，尽量自己搞懂原理（不是算法原理，而是究竟该比较什么数据才会是真正的差分，尤其是 <code>areItemsTheSame</code> 方法）</p>
+</blockquote>
+</blockquote>
+<h3 id="2-4、自定义View"><a href="#2-4、自定义View" class="headerlink" title="2.4、自定义View"></a>2.4、自定义View</h3><blockquote>
+<p>自定义View预习作业：<a target="_blank" rel="noopener" href="https://github.com/985892345/Android_Learning_Route/blob/main/%E8%87%AA%E5%AE%9A%E4%B9%89View%E9%A2%84%E4%B9%A0%E4%BD%9C%E4%B8%9A.md">https://github.com/985892345/Android_Learning_Route/blob/main/自定义View预习作业.md</a></p>
+<p>自定义View课件：<a target="_blank" rel="noopener" href="https://github.com/985892345/CustomViewWithAnimStudy">https://github.com/985892345/CustomViewWithAnimStudy</a></p>
+<p>推荐：</p>
+<p>入门：《Android自定义控件开发入门与实战》</p>
+<p>进阶：《Android自定义控件高阶进阶与精彩实例》</p>
+<p>博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/carson_ho/article/details/56009827">自定义View源码原理</a></p>
+<h3 id="1、onLayout"><a href="#1、onLayout" class="headerlink" title="1、onLayout"></a>1、onLayout</h3><h3 id="2、onMearsure"><a href="#2、onMearsure" class="headerlink" title="2、onMearsure"></a>2、onMearsure</h3><h3 id="3、onDraw"><a href="#3、onDraw" class="headerlink" title="3、onDraw"></a>3、onDraw</h3><h3 id="4、动画"><a href="#4、动画" class="headerlink" title="4、动画"></a>4、动画</h3><h3 id="你需要知道的其他知识："><a href="#你需要知道的其他知识：" class="headerlink" title="你需要知道的其他知识："></a>你需要知道的其他知识：</h3><blockquote>
+<h3 id="View-post-postdelay-方法"><a href="#View-post-postdelay-方法" class="headerlink" title="View.post&#x2F;postdelay()方法"></a>View.post&#x2F;postdelay()方法</h3><h3 id="如何在activity得到控件的宽和高"><a href="#如何在activity得到控件的宽和高" class="headerlink" title="如何在activity得到控件的宽和高"></a>如何在activity得到控件的宽和高</h3></blockquote>
+<h3 id="可以做的实例"><a href="#可以做的实例" class="headerlink" title="可以做的实例"></a>可以做的实例</h3><blockquote>
+<ul>
+<li>流式布局</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2-5、滑动冲突"><a href="#2-5、滑动冲突" class="headerlink" title="2.5、滑动冲突"></a>2.5、滑动冲突</h3><blockquote>
+<h3 id="普通滑动"><a href="#普通滑动" class="headerlink" title="普通滑动"></a>普通滑动</h3><blockquote>
+<p>推荐：</p>
+<p>博客：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e99b5e8bd67b">图解事件分发</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011637339/article/details/50427156?utm_medium=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-1.essearch_wap_relevant&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-1.essearch_wap_relevant">dispatchTouchEvent源码解析</a></p>
+<p>图片：<a target="_blank" rel="noopener" href="https://www.processon.com/view/link/6191f797079129330ada2bd7">郭祥瑞的滑动分发分支图</a></p>
+<h3 id="dispatchTouchEvent"><a href="#dispatchTouchEvent" class="headerlink" title="dispatchTouchEvent"></a>dispatchTouchEvent</h3><h3 id="onInterceptTouchEvent"><a href="#onInterceptTouchEvent" class="headerlink" title="onInterceptTouchEvent"></a>onInterceptTouchEvent</h3><h3 id="onTouchEvent"><a href="#onTouchEvent" class="headerlink" title="onTouchEvent"></a>onTouchEvent</h3><h3 id="requestDisallowInterceptTouchEvent"><a href="#requestDisallowInterceptTouchEvent" class="headerlink" title="requestDisallowInterceptTouchEvent"></a>requestDisallowInterceptTouchEvent</h3></blockquote>
+<h3 id="嵌套滑动"><a href="#嵌套滑动" class="headerlink" title="嵌套滑动"></a>嵌套滑动</h3><blockquote>
+<p>推荐：</p>
+<p>博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hongxue8888/article/details/104022221">图解嵌套滑动</a></p>
+<h3 id="NestedScrollingParent和NestedScrollingParent2"><a href="#NestedScrollingParent和NestedScrollingParent2" class="headerlink" title="NestedScrollingParent和NestedScrollingParent2"></a>NestedScrollingParent和NestedScrollingParent2</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/reference/androidx/core/view/NestedScrollingChild2">NestedScrollingChild2官方文档</a></p>
+</blockquote>
+<h3 id="NestedScrollingChild和NestedScrollingChild2"><a href="#NestedScrollingChild和NestedScrollingChild2" class="headerlink" title="NestedScrollingChild和NestedScrollingChild2"></a>NestedScrollingChild和NestedScrollingChild2</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/reference/androidx/core/view/NestedScrollingParent2">NestedScrollingParent2官方文档</a></p>
+</blockquote>
+<blockquote>
+<p>题外话：为什么还要看1，不直接看2？因为部分官方控件中只使用了1，所以你要知道1和2的区别。还有一个3，这个3在网上的教程较少，直接继承了2，新增了在嵌套滑动中只消耗部分值的方法。<br><a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/androidx/core/view/NestedScrollingParent3?hl=en">NestedScrollingParent3官方文档</a></p>
+</blockquote>
+</blockquote>
+<h3 id="与设计多层自定义View时的使用"><a href="#与设计多层自定义View时的使用" class="headerlink" title="与设计多层自定义View时的使用"></a>与设计多层自定义View时的使用</h3><blockquote>
+<p>建议自己写一些复杂自定义View，包含单击、滑动等一系列事件</p>
+<p>可参考郭祥瑞写的 <a target="_blank" rel="noopener" href="https://github.com/985892345/TimeSelectView_Library">TimeSelectView</a> 控件(按照 README导入简单使用一下，源码写的很拉，在重写了😫，这里直接给出软件下载地址，下载后自己试着想想该怎么设计: <a target="_blank" rel="noopener" href="https://wwi.lanzouo.com/iC1JGy08a0h">https://wwi.lanzouo.com/iC1JGy08a0h</a></p>
+</blockquote>
+<h3 id="简单看看View和ViewGroup中滑动源码"><a href="#简单看看View和ViewGroup中滑动源码" class="headerlink" title="简单看看View和ViewGroup中滑动源码"></a>简单看看View和ViewGroup中滑动源码</h3><h3 id="可以做的实例-1"><a href="#可以做的实例-1" class="headerlink" title="可以做的实例"></a>可以做的实例</h3><blockquote>
+<ul>
+<li>下拉刷新（可参考 <code>SmartRefreshLayout</code>，也可以把上拉加载一起实现）</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2-6、协调者布局CoordinatorLayout"><a href="#2-6、协调者布局CoordinatorLayout" class="headerlink" title="2.6、协调者布局CoordinatorLayout"></a>2.6、协调者布局CoordinatorLayout</h3><blockquote>
+<p>学习它需要知道嵌套滑动</p>
+<h3 id="高阶用法自定义-Behavior"><a href="#高阶用法自定义-Behavior" class="headerlink" title="高阶用法自定义 Behavior"></a>高阶用法自定义 Behavior</h3></blockquote>
+<h3 id="2-7、仿写Glide"><a href="#2-7、仿写Glide" class="headerlink" title="2.7、仿写Glide"></a>2.7、仿写Glide</h3><blockquote>
+<p>1、实现三级缓存</p>
+<p>2、搞懂它为什么能根据 View 的生命周期而自动取消加载图片（他可没有使用 <code>Lifecycle</code> 这个东西）</p>
+<p>3、改用 <code>Lifecycle</code> 实现</p>
+</blockquote>
+<h3 id="2-8、仿写Okhttp"><a href="#2-8、仿写Okhttp" class="headerlink" title="2.8、仿写Okhttp"></a>2.8、仿写Okhttp</h3><blockquote>
+<p>尝试实现拦截器</p>
+<p><strong>仿写Gson</strong></p>
+</blockquote>
+<h3 id="2-9、仿写Rxjava"><a href="#2-9、仿写Rxjava" class="headerlink" title="2.9、仿写Rxjava"></a>2.9、仿写Rxjava</h3><blockquote>
+<p>就算你没时间仿写它，也必须把它用熟，因为它的思想很重要</p>
+</blockquote>
+<h3 id="2-10、仿写EventBus"><a href="#2-10、仿写EventBus" class="headerlink" title="2.10、仿写EventBus"></a>2.10、仿写EventBus</h3><blockquote>
+<p>但不建议使用，此框架因过于灵活，会像goto一样造成滥用而难以溯源</p>
+</blockquote>
+<h3 id="2-11、MotionLayout"><a href="#2-11、MotionLayout" class="headerlink" title="2.11、MotionLayout"></a>2.11、MotionLayout</h3><blockquote>
+<p>有很多自定义View难实现时用这个来写很简单</p>
+<p>推荐谷歌官网：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/training/constraint-layout/motionlayout/examples?hl=zh_cn">https://developer.android.google.cn/training/constraint-layout/motionlayout/examples?hl=zh_cn</a></p>
+</blockquote>
+<h2 id="3、其他内容"><a href="#3、其他内容" class="headerlink" title="3、其他内容"></a>3、其他内容</h2><blockquote>
+<p>学习成本过高或目前阶段不够或目前不使用</p>
+</blockquote>
+<h3 id="3-1、设计模式"><a href="#3-1、设计模式" class="headerlink" title="3.1、设计模式"></a>3.1、设计模式</h3><blockquote>
+<p>有几个<strong>简单的</strong>还是自己要<strong>提前了解</strong>下</p>
+</blockquote>
+<h3 id="3-2、协程原理"><a href="#3-2、协程原理" class="headerlink" title="3.2、协程原理"></a>3.2、协程原理</h3><blockquote>
+<p>推荐文章：<a target="_blank" rel="noopener" href="https://openxu.blog.csdn.net/article/details/116016798">https://openxu.blog.csdn.net/article/details/116016798</a></p>
+<p>推荐21级红岩学长蔷神的心得体会：<a target="_blank" rel="noopener" href="https://github.com/False-Mask/KotlinCoroutine">https://github.com/False-Mask/KotlinCoroutine</a></p>
+</blockquote>
+<h3 id="3-3、Navigation"><a href="#3-3、Navigation" class="headerlink" title="3.3、Navigation"></a>3.3、Navigation</h3><blockquote>
+<p>目前还有些坑，官方还在改进中，掌邮中也不使用</p>
+</blockquote>
+<h3 id="3-4、RecyclerView"><a href="#3-4、RecyclerView" class="headerlink" title="3.4、RecyclerView"></a>3.4、RecyclerView</h3><blockquote>
+<h3 id="滑动事件源码"><a href="#滑动事件源码" class="headerlink" title="滑动事件源码"></a>滑动事件源码</h3><h3 id="LayoutManger"><a href="#LayoutManger" class="headerlink" title="LayoutManger"></a>LayoutManger</h3><h3 id="多级缓存"><a href="#多级缓存" class="headerlink" title="多级缓存"></a>多级缓存</h3></blockquote>
+<h3 id="3-5、paging3"><a href="#3-5、paging3" class="headerlink" title="3.5、paging3"></a>3.5、paging3</h3><blockquote>
+<p>不是2和1</p>
+</blockquote>
+<h3 id="3-6、使用注解实现一些骚操作"><a href="#3-6、使用注解实现一些骚操作" class="headerlink" title="3.6、使用注解实现一些骚操作"></a>3.6、使用注解实现一些骚操作</h3><h3 id="3-7、gradle的使用"><a href="#3-7、gradle的使用" class="headerlink" title="3.7、gradle的使用"></a>3.7、gradle的使用</h3><h3 id="3-8、hilt依赖注入"><a href="#3-8、hilt依赖注入" class="headerlink" title="3.8、hilt依赖注入"></a>3.8、hilt依赖注入</h3><h3 id="3-9、jvm"><a href="#3-9、jvm" class="headerlink" title="3.9、jvm"></a>3.9、jvm</h3><h3 id="3-10、Compose"><a href="#3-10、Compose" class="headerlink" title="3.10、Compose"></a>3.10、Compose</h3><h3 id="3-11、Flow"><a href="#3-11、Flow" class="headerlink" title="3.11、Flow"></a>3.11、Flow</h3><h3 id="3-12、ARouter的使用"><a href="#3-12、ARouter的使用" class="headerlink" title="3.12、ARouter的使用"></a>3.12、ARouter的使用</h3><h3 id="3-xx-别卷了，别卷了！"><a href="#3-xx-别卷了，别卷了！" class="headerlink" title="3.xx 别卷了，别卷了！"></a>3.xx 别卷了，别卷了！</h3><h3 id="……"><a href="#……" class="headerlink" title="……"></a>……</h3></article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item email" href="mailto:?subject=Android学习清单 - WhiteNight's Blog&amp;body=https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://whitenight123.github.io/2022/09/29/Android%E5%AD%A6%E4%B9%A0/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/">安卓第一次课</a></div><div class="item" id="next"></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\2022\11\19\安卓第一次课\" title="安卓第一次课"><span class="title">安卓第一次课</span><span class="excerpt">本文主要介绍了安卓第一次课的内容，包括Android Studio的安装和使用，并完成了第一个简单的Android应用。了解了Android项目结构，认识了视图的基本单位——控件，包括View和ViewGroup，并学习了Constr...</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="WhiteNight123/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="toc-text">寒假学习路线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81kotlin"><span class="toc-text">1、kotlin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3"><span class="toc-text">2、框架相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81MVP"><span class="toc-text">2.1、MVP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81MVVM"><span class="toc-text">2.2、MVVM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1%E3%80%81ViewModel"><span class="toc-text">2.2.1、ViewModel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2%E3%80%81LiveData"><span class="toc-text">2.2.2、LiveData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3%E3%80%81DataBinding"><span class="toc-text">2.2.3、DataBinding</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89View%E4%B8%8E%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81"><span class="toc-text">3、自定义View与滑动冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89View"><span class="toc-text">3.1、自定义View</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81"><span class="toc-text">3.2、滑动冲突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%87%AA%E5%B7%B1%E6%92%B8%E5%90%8E%E7%AB%AF%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">4、自己撸后端（不推荐）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%8F%8A%E4%BB%A5%E5%90%8E%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="toc-text">大一下及以后学习路线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%BF%85%E9%A1%BB%E5%86%85%E5%AE%B9"><span class="toc-text">1、必须内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81kotlin"><span class="toc-text">1.1、kotlin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="toc-text">1.2、四大组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast"><span class="toc-text">Broadcast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81Rxjava%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">1.3、Rxjava的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81Retrofit%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">1.4、Retrofit的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8ERxjava%E9%85%8D%E5%A5%97%E4%BD%BF%E7%94%A8"><span class="toc-text">与Rxjava配套使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%8D%8F%E7%A8%8B%E9%85%8D%E5%A5%97%E4%BD%BF%E7%94%A8"><span class="toc-text">与协程配套使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81Room%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">1.5、Room的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8ERxjava%E9%85%8D%E5%A5%97%E4%BD%BF%E7%94%A8-1"><span class="toc-text">与Rxjava配套使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%8D%8F%E7%A8%8B%E9%85%8D%E5%A5%97%E4%BD%BF%E7%94%A8-1"><span class="toc-text">与协程配套使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6%E3%80%81MVVM-ViewModel-LiveData-DataBinding-Retrofit-Rxjava-Room"><span class="toc-text">1.6、MVVM + ViewModel + LiveData + DataBinding + Retrofit + Rxjava + Room</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%89%A9%E5%B1%95%E5%86%85%E5%AE%B9"><span class="toc-text">2、扩展内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81Material-Design"><span class="toc-text">2.1、Material Design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">2.2、线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-text">阻塞队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E5%86%99CacheThreadPool%E7%AD%89java%E8%87%AA%E5%B8%A6%E7%9A%84%E5%87%A0%E4%B8%AA%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">仿写CacheThreadPool等java自带的几个线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81RecyclerView%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95"><span class="toc-text">2.3、RecyclerView高阶用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%B8%8D%E8%A6%81%E5%86%99%E5%9C%A8onBindViewHolder%E4%B8%AD"><span class="toc-text">1、点击事件不要写在onBindViewHolder中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E4%BE%A7%E6%BB%91%E5%88%A0%E9%99%A4%E3%80%81%E9%95%BF%E6%8C%89%E7%A7%BB%E5%8A%A8Item%EF%BC%88%E8%BF%99%E4%BA%9B%E5%AE%98%E6%96%B9%E9%83%BD%E6%9C%89%E5%B0%81%E8%A3%85%E5%A5%BD%E7%9A%84%E6%8E%A5%E5%8F%A3%EF%BC%89"><span class="toc-text">2、实现侧滑删除、长按移动Item（这些官方都有封装好的接口）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81notifyItemChanged-position%EF%BC%9AInt-paylosd%EF%BC%9AAny"><span class="toc-text">3、notifyItemChanged ( position：Int, paylosd：Any? )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%B7%AE%E5%88%86%E5%88%B7%E6%96%B0-DiffUtil"><span class="toc-text">4、差分刷新 DiffUtil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89View"><span class="toc-text">2.4、自定义View</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81onLayout"><span class="toc-text">1、onLayout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81onMearsure"><span class="toc-text">2、onMearsure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81onDraw"><span class="toc-text">3、onDraw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%8A%A8%E7%94%BB"><span class="toc-text">4、动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-text">你需要知道的其他知识：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View-post-postdelay-%E6%96%B9%E6%B3%95"><span class="toc-text">View.post&#x2F;postdelay()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8activity%E5%BE%97%E5%88%B0%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%AE%BD%E5%92%8C%E9%AB%98"><span class="toc-text">如何在activity得到控件的宽和高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-text">可以做的实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81"><span class="toc-text">2.5、滑动冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E6%BB%91%E5%8A%A8"><span class="toc-text">普通滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dispatchTouchEvent"><span class="toc-text">dispatchTouchEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onInterceptTouchEvent"><span class="toc-text">onInterceptTouchEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onTouchEvent"><span class="toc-text">onTouchEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requestDisallowInterceptTouchEvent"><span class="toc-text">requestDisallowInterceptTouchEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E6%BB%91%E5%8A%A8"><span class="toc-text">嵌套滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NestedScrollingParent%E5%92%8CNestedScrollingParent2"><span class="toc-text">NestedScrollingParent和NestedScrollingParent2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NestedScrollingChild%E5%92%8CNestedScrollingChild2"><span class="toc-text">NestedScrollingChild和NestedScrollingChild2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%A4%9A%E5%B1%82%E8%87%AA%E5%AE%9A%E4%B9%89View%E6%97%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">与设计多层自定义View时的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9C%8B%E7%9C%8BView%E5%92%8CViewGroup%E4%B8%AD%E6%BB%91%E5%8A%A8%E6%BA%90%E7%A0%81"><span class="toc-text">简单看看View和ViewGroup中滑动源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9A%84%E5%AE%9E%E4%BE%8B-1"><span class="toc-text">可以做的实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81%E5%8D%8F%E8%B0%83%E8%80%85%E5%B8%83%E5%B1%80CoordinatorLayout"><span class="toc-text">2.6、协调者布局CoordinatorLayout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95%E8%87%AA%E5%AE%9A%E4%B9%89-Behavior"><span class="toc-text">高阶用法自定义 Behavior</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7%E3%80%81%E4%BB%BF%E5%86%99Glide"><span class="toc-text">2.7、仿写Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8%E3%80%81%E4%BB%BF%E5%86%99Okhttp"><span class="toc-text">2.8、仿写Okhttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9%E3%80%81%E4%BB%BF%E5%86%99Rxjava"><span class="toc-text">2.9、仿写Rxjava</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10%E3%80%81%E4%BB%BF%E5%86%99EventBus"><span class="toc-text">2.10、仿写EventBus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11%E3%80%81MotionLayout"><span class="toc-text">2.11、MotionLayout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%85%B6%E4%BB%96%E5%86%85%E5%AE%B9"><span class="toc-text">3、其他内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.1、设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81%E5%8D%8F%E7%A8%8B%E5%8E%9F%E7%90%86"><span class="toc-text">3.2、协程原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81Navigation"><span class="toc-text">3.3、Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E3%80%81RecyclerView"><span class="toc-text">3.4、RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E4%BA%8B%E4%BB%B6%E6%BA%90%E7%A0%81"><span class="toc-text">滑动事件源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LayoutManger"><span class="toc-text">LayoutManger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-text">多级缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E3%80%81paging3"><span class="toc-text">3.5、paging3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%BA%9B%E9%AA%9A%E6%93%8D%E4%BD%9C"><span class="toc-text">3.6、使用注解实现一些骚操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7%E3%80%81gradle%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">3.7、gradle的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8%E3%80%81hilt%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">3.8、hilt依赖注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9%E3%80%81jvm"><span class="toc-text">3.9、jvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10%E3%80%81Compose"><span class="toc-text">3.10、Compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-11%E3%80%81Flow"><span class="toc-text">3.11、Flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-12%E3%80%81ARouter%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">3.12、ARouter的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-xx-%E5%88%AB%E5%8D%B7%E4%BA%86%EF%BC%8C%E5%88%AB%E5%8D%B7%E4%BA%86%EF%BC%81"><span class="toc-text">3.xx 别卷了，别卷了！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%A6%E2%80%A6"><span class="toc-text">……</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+<script async src="/js/fireworksontype.js"></script><script async src="/js/effectsonclick.js"></script>
+</div></body></html>

@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>labuladong算法小抄 - WhiteNight's Blog</title>
+
+  
+    <meta name="description" content="Labuladong的算法笔记是一套专注于算法学习和刷题的资源，旨在通过模板化思维提升解题能力。内容涵盖数据结构、暴力搜索、动态规划等算法，适合技术面试准备。特点是将复杂算法简化，支持多语言学习，结构清晰，分为常见算法类型、数据结构算法、二叉树视角下的算法和动态规划技巧等章节。强调穷举是算法本质，注重基础存储结构理解，助读者高效学习算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="labuladong算法小抄">
+<meta property="og:url" content="https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/">
+<meta property="og:site_name" content="WhiteNight&#39;s Blog">
+<meta property="og:description" content="Labuladong的算法笔记是一套专注于算法学习和刷题的资源，旨在通过模板化思维提升解题能力。内容涵盖数据结构、暴力搜索、动态规划等算法，适合技术面试准备。特点是将复杂算法简化，支持多语言学习，结构清晰，分为常见算法类型、数据结构算法、二叉树视角下的算法和动态规划技巧等章节。强调穷举是算法本质，注重基础存储结构理解，助读者高效学习算法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://whitenight123.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2023-05-17T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T09:14:06.077Z">
+<meta property="article:author" content="WhiteNight">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://whitenight123.github.io/images/avatar.jpg">
+  
+  
+  
+  <meta name="keywords" content="算法,数据结构,LeetCode,Python">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2023-05-17T20:00:00+08:00","dateModified":"2025-03-11T17:14:06+08:00","datePublished":"2023-05-17T20:00:00+08:00","description":"","headline":"labuladong算法小抄","mainEntityOfPage":{"@type":"WebPage","@id":"https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/"},"publisher":{"@type":"Organization","name":"WhiteNight","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/","keywords":"算法, 数据结构, LeetCode, Python","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">WhiteNight's Blog</div><div class="sub normal cap">充满激情的技术博客</div><div class="sub hover cap" style="opacity:0"> Designed by WhiteNight</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="最新" href="/"><span>最新</span></a><a class="nav-item" title="分类" href="/categories/"><span>分类</span></a><a class="nav-item" title="归档" href="/archives/"><span>归档</span></a><a class="nav-item" title="关于" href="/about/"><span>关于</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2023/04/19/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B/"><span class="title">蓝桥杯备赛</span></a><a class="item title" href="/2024/05/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98/"><span class="title">蓝桥杯真题</span></a><a class="item title" href="/2024/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%BE%85%E5%AF%BC%E8%AF%BE/"><span class="title">蓝桥杯辅导课</span></a><a class="item title" href="/2024/07/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0(c++)/"><span class="title">算法笔记</span></a><a class="item title" href="/2024/09/19/%E6%B4%9B%E8%B0%B7%E9%A2%98%E5%8D%95/"><span class="title">洛谷题单</span></a><a class="item title" href="/2024/01/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/"><span class="title">算法基础课</span></a><a class="item title" href="/2024/09/29/%E4%BF%9D%E7%A0%94%E7%BB%8F%E9%AA%8C%E8%B4%B4/"><span class="title">保研经验贴</span></a><a class="item title" href="/2024/09/09/%E5%8A%9B%E6%89%A3Hot100/"><span class="title">力扣Hot100</span></a><a class="item title" href="/2022/11/19/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%BE/"><span class="title">安卓第一次课</span></a><a class="item title" href="/2024/01/29/pat%E4%B9%99%E7%BA%A7/"><span class="title">PAT 乙级</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/WhiteNight123" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/github.png"/></a><a class="social" href="https://blog.csdn.net/qq_35274980" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/csdn.png"/></a><a class="social" href="https://www.zhihu.com/people/jiu-xin-57-97" target="_blank" rel="external nofollow noopener noreferrer"><img src="/images/zhihu.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2023-05-17T12:00:00.000Z">2023-05-17</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-03-11T09:14:06.077Z">2025-03-11</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>labuladong算法小抄</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="第零章-核心框架"><a href="#第零章-核心框架" class="headerlink" title="第零章 核心框架"></a>第零章 核心框架</h2><h3 id="双指针-单链表"><a href="#双指针-单链表" class="headerlink" title="双指针-&gt;单链表"></a>双指针-&gt;单链表</h3><ul>
+<li><p>合并两个有序链表</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists/">LeetCode21 合并两个有序链表</a></p>
+</li>
+<li><p>链表的分解</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-list/">LeetCode86 分割链表</a></p>
+</li>
+<li><p>合并k个有序链表</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-k-sorted-lists/">LeetCode23 合并k个升序链表</a></p>
+</li>
+<li><p>寻找单链表的倒数第k个节点</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">LeetCode19 删除链表倒数第N个节点</a></p>
+</li>
+<li><p>寻找单链表的中点</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/middle-of-the-linked-list/">LeetCode976 链表的中间结点</a></p>
+</li>
+<li><p>判断单链表是否包含环并找出环起点</p>
+</li>
+<li><p>判断两个单链表是否相交并找出交点</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">LeetCode160 相交链表</a></p>
+</li>
+</ul>
+<h3 id="双指针-数组"><a href="#双指针-数组" class="headerlink" title="双指针-&gt;数组"></a>双指针-&gt;数组</h3><h4 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h4><ul>
+<li><p>原地修改数组</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/">LeetCode26 删除有序数组中的重复项</a></p>
+</li>
+<li><p>对数组某些元素进行原地删除</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-element/">LeetCode27 移除元素</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/move-zeroes/">LeetCode283 移动零</a></p>
+</li>
+</ul>
+<h4 id="左右指针"><a href="#左右指针" class="headerlink" title="左右指针"></a>左右指针</h4><ul>
+<li><p>二分查找</p>
+<p><a href="#nSum">二分查找框架</a></p>
+</li>
+<li><p>两数之和</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/">LeetCode167 两数之和2</a></p>
+</li>
+<li><p>反转数组</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string/">LeetCode344 反转字符串</a></p>
+</li>
+<li><p>回文串判断</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">LeetCode5 最长回文子串</a></p>
+</li>
+</ul>
+<h3 id="二叉树-纲要篇"><a href="#二叉树-纲要篇" class="headerlink" title="二叉树(纲要篇)"></a>二叉树(纲要篇)</h3><p>Tips:快速排序就是二叉树的前序遍历,归并排序是二叉树的后序遍历</p>
+<ul>
+<li>快速排序框架:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sort</span>(<span class="params">nums, lo, hi</span>)&#123;</span><br><span class="line">    <span class="comment"># 前序遍历位置</span></span><br><span class="line">    <span class="comment"># 通过交换元素构建分界点 p</span></span><br><span class="line">    p = partition(nums, lo, hi)</span><br><span class="line">    sort(nums, lo, p-<span class="number">1</span>)</span><br><span class="line">    sort(nums, p+<span class="number">1</span>, hi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>归并排序框架:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sort</span>(<span class="params">nums, lo, hi</span>)&#123;</span><br><span class="line">	<span class="built_in">int</span> mid = (lo + hi) / <span class="number">2</span></span><br><span class="line">	<span class="comment"># 排序nums[lo..mid]</span></span><br><span class="line">	sort(nums, lo, mid)</span><br><span class="line">	<span class="comment"># 排序nums[mid+1..hi]</span></span><br><span class="line">	sort(nums, mid+<span class="number">1</span>, hi)</span><br><span class="line">	<span class="comment"># 合并nums[lo..mid] 和 nums[mid+1..hi]</span></span><br><span class="line">	merge(nums, lo, mid, hi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二叉树遍历框架"><a href="#二叉树遍历框架" class="headerlink" title="二叉树遍历框架:"></a>二叉树遍历框架:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">root</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">	<span class="comment"># 前序位置</span></span><br><span class="line">	traverse(root.left)</span><br><span class="line">	<span class="comment"># 中序位置</span></span><br><span class="line">	traverse(root.right)</span><br><span class="line">	<span class="comment"># 后序位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://labuladong.github.io/algo/images/%e4%ba%8c%e5%8f%89%e6%a0%91%e6%94%b6%e5%ae%98/2.jpeg" alt="前序,中序,后序"></p>
+<p>  <strong>前序位置</strong>的代码只能从函数参数中获取父节点传递来的数据，而<strong>后序位置</strong>的代码不仅可以获取参数数据，还可以获取到子树通过函数返回值传递回来的数据</p>
+<h4 id="两种解题思路"><a href="#两种解题思路" class="headerlink" title="两种解题思路:"></a>两种解题思路:</h4><ul>
+<li><p>遍历一遍二叉树得出答案</p>
+<p><a href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95(%E6%A1%86%E6%9E%B6)">回溯算法框架</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">LeetCode104 二叉树的最大深度</a></p>
+</li>
+<li><p>分解问题计算出答案</p>
+<p><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A1%86%E6%9E%B6">动态规划核心框架</a></p>
+</li>
+</ul>
+<h4 id="后序位置的特殊之处"><a href="#后序位置的特殊之处" class="headerlink" title="后序位置的特殊之处:"></a>后序位置的特殊之处:</h4><p>​		<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/diameter-of-binary-tree/">LeetCode543 二叉树的直径</a></p>
+<h4 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历:"></a>层序遍历:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">levelTraverse</span>(<span class="params">root</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">	que = deque()</span><br><span class="line">	que.append(root)</span><br><span class="line">    <span class="comment"># 从上到下遍历二叉树的每一层</span></span><br><span class="line">	<span class="keyword">while</span> que:</span><br><span class="line">    	<span class="comment"># 从左到右遍历每一层的每个结点</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(que)):</span><br><span class="line">    		cur = que.popleft()</span><br><span class="line">    		<span class="comment"># 将下一层结点放入队列</span></span><br><span class="line">    		<span class="keyword">if</span> cur.left:</span><br><span class="line">    			que.append(cur.left)</span><br><span class="line">    		<span class="keyword">if</span> cur.right:</span><br><span class="line">    			que.append(cur.right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		<a href="#BFS%E7%AE%97%E6%B3%95%E6%A1%86%E6%9E%B6">BFS算法框架</a></p>
+<h3 id="动态规划-框架"><a href="#动态规划-框架" class="headerlink" title="动态规划(框架)"></a>动态规划(框架)</h3><h4 id="动态规划框架"><a href="#动态规划框架" class="headerlink" title="动态规划框架:"></a>动态规划框架:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自顶向下递归的动态规划</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dp</span>(<span class="params">状态<span class="number">1</span>, 状态<span class="number">2</span>, ...</span>):</span><br><span class="line">	<span class="keyword">for</span> 选择 <span class="keyword">in</span> 所有可能的选择:</span><br><span class="line">		<span class="comment"># 此时的状态已经因为做了选择而改变</span></span><br><span class="line">		result = 求最值(result, dp(状态<span class="number">1</span>, 状态<span class="number">2</span>, ...))</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line"><span class="comment"># 自底向上迭代的动态规划</span></span><br><span class="line"><span class="comment"># 初始化 base case</span></span><br><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>][...] = base <span class="keyword">case</span></span><br><span class="line"><span class="comment"># 进行状态转移</span></span><br><span class="line"><span class="keyword">for</span> 状态<span class="number">1</span> <span class="keyword">in</span> 状态<span class="number">1</span>的所有取值:</span><br><span class="line">    <span class="keyword">for</span> 状态<span class="number">2</span> <span class="keyword">in</span> 状态<span class="number">2</span>的所有取值:</span><br><span class="line">        <span class="keyword">for</span> ...</span><br><span class="line">        	dp[状态<span class="number">1</span>][状态<span class="number">2</span>][...] = 求最值(选择<span class="number">1</span>, 选择<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路:"></a>解题思路:</h4><p><strong>暴力穷举</strong>,<strong>带备忘录的递归</strong>和<strong>dp数组的迭代(可降空间复杂度为O(1))</strong></p>
+<ul>
+<li><p>斐波那契数列</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/fibonacci-number/">LeetCode509 斐波那契数列</a></p>
+</li>
+<li><p>凑零钱</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/coin-change/">LeetCode322 零钱兑换</a></p>
+</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><strong>计算机解决问题其实没有任何奇技淫巧，它唯一的解决办法就是穷举</strong>，      穷举所有可能性。算法设计无非就是先思考“如何穷举”，然后再追求“如何聪明地穷举”。</p>
+<p>  列出状态转移方程，就是在解决“如何穷举”的问题。之所以说它难，一是因为很多穷举需要递归实现，二是因为有的问题本身的解空间复杂，不那么容易穷举完整。</p>
+<p>  备忘录、DP table 就是在追求“如何聪明地穷举”。用空间换时间的思路，是降低时间复杂度的不二法门，除此之外，试问，还能玩出啥花活？</p>
+<h3 id="回溯算法-框架"><a href="#回溯算法-框架" class="headerlink" title="回溯算法(框架)"></a>回溯算法(框架)</h3><p>Tips:回溯算法和 DFS 算法的细微差别是：<strong>回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」</strong></p>
+<h4 id="回溯算法框架"><a href="#回溯算法框架" class="headerlink" title="回溯算法框架"></a>回溯算法框架</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">res = []</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">路径, 选择列表</span>):</span><br><span class="line">	<span class="keyword">if</span> 满足结束条件:</span><br><span class="line">		res.add(路径)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	<span class="keyword">for</span> 选择 <span class="keyword">in</span> 选择列表:</span><br><span class="line">		做选择</span><br><span class="line">		backtrack(路径, 选择列表)</span><br><span class="line">		撤销xrz</span><br></pre></td></tr></table></figure>
+
+<p><strong>其核心就是 for 循环里面的递归，在递归调用之前「做选择」，在递归调用之后「撤销选择」</strong></p>
+<ul>
+<li><p>全排列问题</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">LeetCode46 全排列</a></p>
+<p><a href="#%E5%9B%9E%E6%BA%AF-%3E%E6%8E%92%E5%88%97,%E7%BB%84%E5%90%88,%E5%AD%90%E9%9B%86">全排列详解</a></p>
+</li>
+<li><p>N皇后问题</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/n-queens/">LeetCode51 N皇后</a></p>
+</li>
+</ul>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>  时间复杂度都不可能低于 O(N!)，因为穷举整棵决策树是无法避免的。<strong>这也是回溯算法的一个特点，不像动态规划存在重叠子问题可以优化，回溯算法就是纯暴力穷举，复杂度一般都很高</strong>。</p>
+<p>  <strong>写 <code>backtrack</code> 函数时，需要维护走过的「路径」和当前可以做的「选择列表」，当触发「结束条件」时，将「路径」记入结果集</strong>。</p>
+<h3 id="回溯-排列-组合-子集"><a href="#回溯-排列-组合-子集" class="headerlink" title="回溯-&gt;排列,组合,子集"></a>回溯-&gt;排列,组合,子集</h3><p>无论是排列、组合还是子集问题，简单说无非就是让你从序列 <code>nums</code> 中以给定规则取若干元素，主要有以下几种变体：</p>
+<ol>
+<li>元素无重不可复选，即 <code>nums</code> 中的元素都是唯一的，每个元素最多只能被使用一次，这也是最基本的形式。</li>
+</ol>
+<p>​		以组合为例，如果输入 <code>nums = [2,3,6,7]</code>，和为 7 的组合应该只有 <code>[7]</code>。</p>
+<ol start="2">
+<li>元素可重不可复选，即 <code>nums</code> 中的元素可以存在重复，每个元素最多只能被使用一次。</li>
+</ol>
+<p>​		以组合为例，如果输入 <code>nums = [2,5,2,1,2]</code>，和为 7 的组合应该有两种 <code>[2,2,2,1]</code> 和 <code>[5,2]</code>。</p>
+<ol start="3">
+<li>元素无重可复选，即 <code>nums</code> 中的元素都是唯一的，每个元素可以被使用若干次。</li>
+</ol>
+<p>​		以组合为例，如果输入 <code>nums = [2,3,6,7]</code>，和为 7 的组合应该有两种 <code>[2,2,3]</code> 和 <code>[7]</code>。</p>
+<p>​	<strong>但无论形式怎么变化，其本质就是穷举所有解，而这些解呈现树形结构，所以合理使用回溯算法框架，稍改代码框架即可把这些问题一网打尽</strong>。</p>
+<p>​	<a href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95(%E6%A1%86%E6%9E%B6)">回溯算法核心</a></p>
+<ul>
+<li><p>子集(元素无重不可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets/">LeetCode78 子集</a></p>
+</li>
+<li><p>组合(元素无重不可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combinations/">LeetCode77 组合</a></p>
+</li>
+<li><p>排列(元素无重不可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">LeetCode46 全排列</a></p>
+</li>
+<li><p>子集&#x2F;组合(元素可重不可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets-ii/">LeetCode 子集2</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-ii/">LeetCode 组合总和2</a></p>
+</li>
+<li><p>排列(元素可重不可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations-ii/">全排列2</a></p>
+</li>
+<li><p>子集&#x2F;组合(元素无重可复选)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum/">LeetCode39 组合总和</a></p>
+</li>
+<li><p>排列(元素无重可复选)</p>
+</li>
+</ul>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><ol>
+<li><p>元素无重复不可复选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合/子集问题回溯算法框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums, start</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">		tarck.addLast(nums[i])</span><br><span class="line">        <span class="comment"># 注意参数</span></span><br><span class="line">		backtrack(nums, i+<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 撤销选择</span></span><br><span class="line">		track.removeLast()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 排列问题回溯算法框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 剪枝逻辑</span></span><br><span class="line">        <span class="keyword">if</span> used[i]: <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">        used[i] = true</span><br><span class="line">        track.addLast(nums[i])</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="comment"># 撤销选择</span></span><br><span class="line">        track.removeLast()</span><br><span class="line">        used[i] = false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素可重不可复选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line"><span class="comment"># 组合/子集问题回溯算法框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums, start</span>)&#123;</span><br><span class="line">    <span class="comment"># 回溯算法标准框架</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 剪枝逻辑,跳过相同的相邻树枝</span></span><br><span class="line">        <span class="keyword">if</span> i&gt;start <span class="keyword">and</span> nums[i]==nums[i-<span class="number">1</span>]: <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">        track.addLast(nums[i])</span><br><span class="line">        <span class="comment"># 注意参数</span></span><br><span class="line">        backtrack(nums, i+<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 撤销选择</span></span><br><span class="line">        track.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nums.sort()</span><br><span class="line"><span class="comment"># 排列问题回溯算法框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 剪枝逻辑</span></span><br><span class="line">        <span class="keyword">if</span> used[i]:<span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 剪枝逻辑,固定相同的元素在排列中的相对位置</span></span><br><span class="line">        <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums[i]==nums[i-<span class="number">1</span>] <span class="keyword">and</span> <span class="keyword">not</span> used[i-<span class="number">1</span>]: <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">        used[i] = true</span><br><span class="line">        track.addLast(nums[i])</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="comment">#撤销选择</span></span><br><span class="line">        track.removeLast()</span><br><span class="line">        used[i] = false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素无重可复选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合/子集问题回溯框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums, start</span>)&#123;</span><br><span class="line">    <span class="comment"># 回溯算法标准框架</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">		track.addLast(nums[i])</span><br><span class="line">        <span class="comment"># 注意参数</span></span><br><span class="line">		backtrack(nums, i)</span><br><span class="line">        <span class="comment"># 撤销选择</span></span><br><span class="line">		track.removeLase()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 排列问题回溯算法框架</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">nums</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums))&#123;</span><br><span class="line">        <span class="comment"># 做选择</span></span><br><span class="line">        track.addLast(nums[i])</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="comment"># 撤销选择</span></span><br><span class="line">        track.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="BFS-框架"><a href="#BFS-框架" class="headerlink" title="BFS(框架)"></a>BFS(框架)</h3><ul>
+<li><p>BFS框架:</p>
+<p><a href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86:">层序遍历</a></p>
+</li>
+<li><p>二叉树的最小高度</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">LeetCode111 二叉树的最小高度</a></p>
+</li>
+<li><p>解开密码锁的最少次数</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/open-the-lock/">LeetCode752 打开转盘锁</a></p>
+</li>
+<li><p>双向BFS优化</p>
+<p><strong>传统的 BFS 框架就是从起点开始向四周扩散，遇到终点时停止；而双向 BFS 则是从起点和终点同时开始扩散，当两边有交集的时候停止</strong>。</p>
+</li>
+</ul>
+<h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><ul>
+<li><p>寻找一个数(基本的二分搜索)</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-search/">LeetCode704 二分查找</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">binarySearch</span>(<span class="params">nums, target</span>)&#123;</span><br><span class="line">	left, right = <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span></span><br><span class="line">	<span class="keyword">while</span>(left&lt;=right):</span><br><span class="line">		mid = left+(right-left)//<span class="number">2</span></span><br><span class="line">		<span class="keyword">if</span>(nums[mid]==target):</span><br><span class="line">    		<span class="comment"># 直接返回</span></span><br><span class="line">			<span class="keyword">return</span> mid</span><br><span class="line">		<span class="keyword">elif</span> nums[mid]&gt;target:</span><br><span class="line">			right = mid-<span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> nums[mid]&lt;target:</span><br><span class="line">			left = mid+<span class="number">1</span></span><br><span class="line">    <span class="comment"># 直接返回</span></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寻找左侧边界的二分搜索</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">left_bound</span>(<span class="params">nums, target</span>)&#123;</span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span></span><br><span class="line">    <span class="comment"># 搜索区间为[left, right]</span></span><br><span class="line">    <span class="keyword">while</span> left&lt;=right:</span><br><span class="line">    	mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">    	<span class="keyword">if</span> nums[mid]==target:</span><br><span class="line">    		<span class="comment"># 收缩右侧边界</span></span><br><span class="line">    		right = mid+<span class="number">1</span></span><br><span class="line">    	<span class="keyword">elif</span> nums[mid]&lt;target:</span><br><span class="line">    		<span class="comment"># 搜索区间变为[mid+1, right]</span></span><br><span class="line">    		left = mid+<span class="number">1</span></span><br><span class="line">	    <span class="keyword">elif</span> nums[mid]&gt;target:</span><br><span class="line">    		<span class="comment"># 搜索区间变为[left, mid-1]</span></span><br><span class="line">    		right = mid</span><br><span class="line">    <span class="comment"># 判断target是否存在于nums中</span></span><br><span class="line">    <span class="comment"># 此时target比所有数都大,返回-1</span></span><br><span class="line">    <span class="keyword">if</span> left==<span class="built_in">len</span>(nums): <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    <span class="comment"># 判断一下nums[left]是不是target</span></span><br><span class="line">    <span class="keyword">return</span> nums[left]==target ? left : -<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寻找右侧边界的二分查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">right_bound</span>(<span class="params">nums, target</span>)&#123;</span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left&lt;=right:</span><br><span class="line">    	mid = left+(right-left)//<span class="number">2</span></span><br><span class="line">    	<span class="keyword">if</span> nums[mid]&lt;target:</span><br><span class="line">    		left=mid+<span class="number">1</span></span><br><span class="line">    	<span class="keyword">elif</span> nums[mid]&gt;target:</span><br><span class="line">    		right = mid-<span class="number">1</span></span><br><span class="line">	    <span class="keyword">elif</span> nums[mid]==target:</span><br><span class="line">    		<span class="comment"># 收缩左边界</span></span><br><span class="line">		    left = mid+<span class="number">1</span></span><br><span class="line">    <span class="comment"># 最后改成返回left-1</span></span><br><span class="line">    <span class="keyword">if</span> left-<span class="number">1</span> &lt; <span class="number">0</span>: <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> nums[left-<span class="number">1</span>]==target ? left-<span class="number">1</span> :-<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>总结:</p>
+<p>​	<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode34 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<ol>
+<li><p>最基本的二分查找算法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">因为我们初始化 right = nums.length - 1</span><br><span class="line">所以决定了我们的「搜索区间」是 [left, right]</span><br><span class="line">所以决定了 while (left &lt;= right)</span><br><span class="line">同时也决定了 left = mid+1 和 right = mid-1</span><br><span class="line"></span><br><span class="line">因为我们只需找到一个 target 的索引即可</span><br><span class="line">所以当 nums[mid] == target 时可以立即返回</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寻找左侧边界的二分查找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">因为我们初始化 right = nums.length</span><br><span class="line">所以决定了我们的「搜索区间」是 [left, right)</span><br><span class="line">所以决定了 while (left &lt; right)</span><br><span class="line">同时也决定了 left = mid + 1 和 right = mid</span><br><span class="line"></span><br><span class="line">因为我们需找到 target 的最左侧索引</span><br><span class="line">所以当 nums[mid] == target 时不要立即返回</span><br><span class="line">而要收紧右侧边界以锁定左侧边界</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寻找右侧边界的二分查找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">因为我们初始化 right = nums.length</span><br><span class="line">所以决定了我们的「搜索区间」是 [left, right)</span><br><span class="line">所以决定了 while (left &lt; right)</span><br><span class="line">同时也决定了 left = mid + 1 和 right = mid</span><br><span class="line"></span><br><span class="line">因为我们需找到 target 的最右侧索引</span><br><span class="line">所以当 nums[mid] == target 时不要立即返回</span><br><span class="line">而要收紧左侧边界以锁定右侧边界</span><br><span class="line"></span><br><span class="line">又因为收紧左侧边界时必须 left = mid + 1</span><br><span class="line">所以最后无论返回 left 还是 right，必须减一</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><ul>
+<li><p>滑动窗口框架</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">left, right = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> right&lt;<span class="built_in">len</span>(s):</span><br><span class="line">    <span class="comment"># c是将移入窗口的字符</span></span><br><span class="line">    window.add(s[right])</span><br><span class="line">    <span class="comment"># 增大窗口</span></span><br><span class="line">    right += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 进行窗口内数据的一系列更新</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="comment"># debug输出的位置</span></span><br><span class="line">    printf(<span class="string">&quot;Window:[%d, %d]\n&quot;</span>, left, right)</span><br><span class="line">    <span class="comment"># 判断左侧窗口是否要收缩</span></span><br><span class="line">    <span class="keyword">while</span> window needs shrink:</span><br><span class="line">        <span class="comment"># d是将移出窗口的字符</span></span><br><span class="line">        char d = s[left]</span><br><span class="line">        <span class="comment"># 缩小窗口</span></span><br><span class="line">        left+=<span class="number">1</span></span><br><span class="line">        <span class="comment"># 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最小覆盖子串</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-window-substring/">LeetCode76 最小覆盖子串</a></p>
+</li>
+<li><p>字符串排列</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutation-in-string/">LeetCode567 字符串的排列</a></p>
+</li>
+<li><p>找所有字母异位词</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/">LeetCode438 找到字符串中所有字母异位词</a></p>
+</li>
+<li><p>最长无重复子串</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">LeetCode3 无重复字符的最长子串</a></p>
+</li>
+</ul>
+<p>总结:</p>
+<pre><code>1. 什么时候应该扩大窗口?
+1. 什么时候应该缩小窗口?
+1. 什么时候应该更新答案?
+</code></pre>
+<h3 id="买股票-DP"><a href="#买股票-DP" class="headerlink" title="买股票(DP)"></a>买股票(DP)</h3><ul>
+<li><p>状态转移方程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">base case：</span><br><span class="line">dp[-1][...][0] = dp[...][0][0] = 0</span><br><span class="line">dp[-1][...][1] = dp[...][0][1] = -infinity</span><br><span class="line"></span><br><span class="line">状态转移方程：</span><br><span class="line">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])</span><br><span class="line">dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])</span><br></pre></td></tr></table></figure>
+
+<p>base case</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dp[-1][...][0] = 0</span><br><span class="line">解释：因为 i 是从 0 开始的，所以 i = -1 意味着还没有开始，这时候的利润当然是 0。</span><br><span class="line"></span><br><span class="line">dp[-1][...][1] = -infinity</span><br><span class="line">解释：还没开始的时候，是不可能持有股票的。</span><br><span class="line">因为我们的算法要求一个最大值，所以初始值设为一个最小值，方便取最大值。</span><br><span class="line"></span><br><span class="line">dp[...][0][0] = 0</span><br><span class="line">解释：因为 k 是从 1 开始的，所以 k = 0 意味着根本不允许交易，这时候利润当然是 0。</span><br><span class="line"></span><br><span class="line">dp[...][0][1] = -infinity</span><br><span class="line">解释：不允许交易的情况下，是不可能持有股票的。</span><br><span class="line">因为我们的算法要求一个最大值，所以初始值设为一个最小值，方便取最大值。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">LeetCode121 买卖股票的最佳时机</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">LeetCode122 买卖股票的最佳时机2</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/">LeetCode309 最佳买卖股票含冷冻期</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">LeetCode714 买卖股票的最佳时机含手续费</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/">LeetCode123 买卖股票的最佳时机3</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/">LeetCode188 买卖股票的最佳时机4</a></p>
+</li>
+</ul>
+<h3 id="打家劫舍-DP"><a href="#打家劫舍-DP" class="headerlink" title="打家劫舍(DP)"></a>打家劫舍(DP)</h3><ul>
+<li><p>打家劫舍1</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber/">LeetCode198 打家劫舍</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 带备忘录</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rob</span>(<span class="params">nums</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	<span class="keyword">if</span> n==<span class="number">1</span>: <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">	dp = [<span class="number">0</span>]*n</span><br><span class="line">    dp[<span class="number">0</span>], dp[<span class="number">1</span>] = nums[<span class="number">0</span>], <span class="built_in">max</span>(nums[<span class="number">0</span>], nums[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n):</span><br><span class="line">        dp[i] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>], dp[i-<span class="number">2</span>]+nums[i])</span><br><span class="line">    <span class="keyword">return</span> dp[n-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 优化空间</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rob</span>(<span class="params">nums</span>):</span><br><span class="line">    prev, curr = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">        prev, curr = curr, <span class="built_in">max</span>(curr, prev+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> curr</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打家劫舍2</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-ii/">LeetCode213 打家劫舍2</a></p>
+</li>
+<li><p>打家劫舍3</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-iii/">LeetCode337 打家劫舍3</a></p>
+</li>
+</ul>
+<h3 id="nSum"><a href="#nSum" class="headerlink" title="nSum"></a>nSum</h3><ul>
+<li><p>两数之和</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">LeetCode1 两数之和</a></p>
+</li>
+<li><p>3Sum</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">LeetCode15 三数之和</a></p>
+</li>
+<li><p>4Sum</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/4sum/">LeetCode18 四数之和</a></p>
+</li>
+</ul>
+<h2 id="第一章-数据结构"><a href="#第一章-数据结构" class="headerlink" title="第一章 数据结构"></a>第一章 数据结构</h2><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><p>拉宾-卡普</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><h3 id="设计数据结构"><a href="#设计数据结构" class="headerlink" title="设计数据结构"></a>设计数据结构</h3></article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item email" href="mailto:?subject=labuladong算法小抄 - WhiteNight's Blog&amp;body=https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://whitenight123.github.io/2023/05/17/labuladong%E7%AE%97%E6%B3%95%E5%B0%8F%E6%8A%84/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/09/29/Latex%E5%AD%A6%E4%B9%A0/">Latex学习</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/04/19/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B/">蓝桥杯备赛</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\2024\01\29\pat乙级\" title="PAT 乙级"><span class="title">PAT 乙级</span><span class="excerpt">这份文档包含了解决PAT乙级编程题目的Python代码示例。代码涵盖了从1001到1053的题目，包括数字计算、字符串处理、排序、查找、数据结构等多个方面。每个代码示例都简洁明了，并配有相应的题目描述和代码解释。这份文档可以帮助初学者...</span></a><a class="item" href="\2024\09\09\力扣Hot100\" title="力扣Hot100"><span class="title">力扣Hot100</span><span class="excerpt">力扣Hot100题解，包括哈希、双指针、滑动窗口、字串、矩阵、链表、二叉树、图论、回溯、二分查找、栈、堆、贪心算法、动态规划等。</span></a><a class="item" href="\2023\04\19\蓝桥杯备赛\" title="蓝桥杯备赛"><span class="title">蓝桥杯备赛</span><span class="excerpt">蓝桥杯备赛，包括暴力、动态规划、数论、图论等。</span></a><a class="item" href="\2024\01\29\算法基础课\" title="算法基础课"><span class="title">算法基础课</span><span class="excerpt">这份文档详细介绍了 AcWing 算法基础课中的各种算法和数据结构，包括排序算法（快速排序、归并排序）、二分查找、前缀和、差分、双指针、二进制、离散化、区间合并、数据结构（单链表、双链表、栈、队列、单调栈、单调队列、KMP、Trie、...</span></a><a class="item" href="\2024\08\30\PAT甲级\" title="PAT 甲级"><span class="title">PAT 甲级</span><span class="excerpt">这份文档是一个 PAT 甲级编程题目的集合，包含了 117 个不同的问题。这些问题涵盖了各种类型，包括：基础算法：如排序、查找、贪心算法等；数据结构：如链表、树、图、并查集等；数学：如数论、概率、组合数学等；模拟：如大模拟、事件模拟等...</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="WhiteNight123/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E9%9B%B6%E7%AB%A0-%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6"><span class="toc-text">第零章 核心框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88-%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-text">双指针-&gt;单链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88-%E6%95%B0%E7%BB%84"><span class="toc-text">双指针-&gt;数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88"><span class="toc-text">快慢指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A6%E5%8F%B3%E6%8C%87%E9%92%88"><span class="toc-text">左右指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91-%E7%BA%B2%E8%A6%81%E7%AF%87"><span class="toc-text">二叉树(纲要篇)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%A1%86%E6%9E%B6"><span class="toc-text">二叉树遍历框架:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-text">两种解题思路:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E4%BD%8D%E7%BD%AE%E7%9A%84%E7%89%B9%E6%AE%8A%E4%B9%8B%E5%A4%84"><span class="toc-text">后序位置的特殊之处:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-text">层序遍历:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%A1%86%E6%9E%B6"><span class="toc-text">动态规划(框架)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A1%86%E6%9E%B6"><span class="toc-text">动态规划框架:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-text">解题思路:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95-%E6%A1%86%E6%9E%B6"><span class="toc-text">回溯算法(框架)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-text">回溯算法框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF-%E6%8E%92%E5%88%97-%E7%BB%84%E5%90%88-%E5%AD%90%E9%9B%86"><span class="toc-text">回溯-&gt;排列,组合,子集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS-%E6%A1%86%E6%9E%B6"><span class="toc-text">BFS(框架)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2"><span class="toc-text">二分搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="toc-text">滑动窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%B0%E8%82%A1%E7%A5%A8-DP"><span class="toc-text">买股票(DP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-DP"><span class="toc-text">打家劫舍(DP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nSum"><span class="toc-text">nSum</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">第一章 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-text">图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">设计数据结构</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+<script async src="/js/fireworksontype.js"></script><script async src="/js/effectsonclick.js"></script>
+</div></body></html>
